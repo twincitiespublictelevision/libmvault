@@ -11,7 +11,7 @@ use LibMVault\PBSProfile;
 class PBSProfileResult extends Result {
 
   /**
-   * @param PBSProfile $value
+   * @param PBSProfile|null $value
    * @return PBSProfileResult
    */
   public static function ok($value): Result {
@@ -27,7 +27,7 @@ class PBSProfileResult extends Result {
   }
 
   /**
-   * @return PBSProfile
+   * @return PBSProfile|null
    * @throws \Exception
    */
   public function value() {
@@ -40,7 +40,7 @@ class PBSProfileResult extends Result {
 
   /**
    * @param mixed $fallback
-   * @return PBSProfile|mixed
+   * @return PBSProfile|null|mixed
    */
   public function valueOr($fallback) {
     if ($this->isError()) {
