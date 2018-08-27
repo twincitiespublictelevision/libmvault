@@ -1,0 +1,21 @@
+{
+    "name": "twincitiespublictelevision/libmvault",
+    "description": "General structures for working with PBS MVault data",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "TPT",
+            "email": "webmaster@tpt.org"
+        }
+    ],
+    "require": {
+        "ext-json": "*",
+        "php": ">=7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "LibMVault\\": "src/"
+        }
+    }
+}
