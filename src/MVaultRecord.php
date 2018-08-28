@@ -410,6 +410,13 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * @return bool
+   */
+  public function isActivated(): bool {
+    return $this->getPBSProfile() !== null;
+  }
+
+  /**
    * @return mixed
    */
   public function jsonSerialize() {
