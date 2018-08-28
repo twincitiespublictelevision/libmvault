@@ -8,34 +8,64 @@ use LibMVault\MVaultRecord;
  * Class MVaultResult
  * @package LibMVault\Result
  */
-class MVaultResult extends Result {
+class MVaultResult {
+
+  /**
+   * @var Result
+   */
+  protected $res;
+
+  /**
+   * MVaultResult constructor.
+   * @param Result $res
+   */
+  private function __construct(Result $res) {
+    $this->res = $res;
+  }
 
   /**
    * @param MVaultRecord|null $value
    * @return MVaultResult
    */
-  public static function ok($value): Result {
-    return parent::ok($value);
+  public static function ok(?MVaultRecord $value): MVaultResult {
+    return new MVaultResult(Result::ok($value));
   }
 
   /**
    * @param \Exception $err
    * @return MVaultResult
    */
-  public static function err(\Exception $err): Result {
-    return parent::err($err);
+  public static function err(\Exception $err): MVaultResult {
+    return new MVaultResult(Result::err($err));
+  }
+
+  /**
+   * @return bool
+   */
+  public function isOk(): bool {
+    return $this->res->isOk();
+  }
+
+  /**
+   * @return bool
+   */
+  public function isError(): bool {
+    return $this->res->isError();
   }
 
   /**
    * @return MVaultRecord|null
    * @throws \Exception
    */
-  public function value() {
-    if ($this->isError()) {
-      throw $this->_e;
-    }
+  public function value(): ?MVaultRecord {
+    return $this->res->value();
+  }
 
-    return $this->_value;
+  /**
+   * @return \Exception|null
+   */
+  public function getErr() {
+    return $this->res->getErr();
   }
 
   /**
@@ -43,10 +73,6 @@ class MVaultResult extends Result {
    * @return MVaultRecord|null|mixed
    */
   public function valueOr($fallback) {
-    if ($this->isError()) {
-      return $fallback;
-    }
-
-    return $this->_value;
+    return $this->res->valueOr($fallback);
   }
 }

@@ -160,7 +160,7 @@ class MVaultRecord implements \JsonSerializable {
    * @param string $record
    * @return MVaultResult
    */
-  public static function fromJSON(string $record): Result {
+  public static function fromJSON(string $record): MVaultResult {
     try {
       $parsed = ex_json_decode($record);
       return self::fromStdClass($parsed);
@@ -173,7 +173,7 @@ class MVaultRecord implements \JsonSerializable {
    * @param array $record
    * @return MVaultResult
    */
-  public static function fromArray(array $record): Result {
+  public static function fromArray(array $record): MVaultResult {
 
     // Records do not get terribly large, so for simplicity we encode and then
     // decode from JSON at the cost of a little performance
@@ -188,7 +188,7 @@ class MVaultRecord implements \JsonSerializable {
    * @param \stdClass $record
    * @return MVaultResult
    */
-  public static function fromStdClass(\stdClass $record): Result {
+  public static function fromStdClass(\stdClass $record): MVaultResult {
     foreach (self::REQUIRED as $req) {
       if (!property_exists($record, $req)) {
         return MVaultResult::err(new \InvalidArgumentException("Malformed MVault record. {$req} field is missing."));

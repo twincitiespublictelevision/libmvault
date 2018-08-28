@@ -60,7 +60,7 @@ class PBSProfile implements \JsonSerializable {
    * @param string $record
    * @return PBSProfileResult
    */
-  public static function fromJSON(string $record): Result {
+  public static function fromJSON(string $record): PBSProfileResult {
     try {
       $parsed = ex_json_decode($record);
       return self::fromStdClass($parsed);
@@ -73,7 +73,7 @@ class PBSProfile implements \JsonSerializable {
    * @param array $record
    * @return PBSProfileResult
    */
-  public static function fromArray(array $record): Result {
+  public static function fromArray(array $record): PBSProfileResult {
 
     // Records do not get terribly large, so for simplicity we encode and then
     // decode from JSON at the cost of a little performance
@@ -88,7 +88,7 @@ class PBSProfile implements \JsonSerializable {
    * @param \stdClass $record
    * @return PBSProfileResult
    */
-  public static function fromStdClass(\stdClass $record): Result {
+  public static function fromStdClass(\stdClass $record): PBSProfileResult {
     foreach (self::REQUIRED as $req) {
       if (property_exists($record, $req)) {
         PBSProfileResult::err(new \InvalidArgumentException("Malformed PBS Profile. {$req} field is missing."));
