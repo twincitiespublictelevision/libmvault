@@ -157,7 +157,7 @@ class MVaultRecord implements \JsonSerializable {
 
   /**
    * @param string $record
-   * @return Result
+   * @return MVaultResult
    */
   public static function fromJSON(string $record): MVaultResult {
     try {

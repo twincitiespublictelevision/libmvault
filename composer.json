@@ -14,6 +14,7 @@
         "php": ">=7.1"
     },
     "autoload": {
+        "files": ["src/import_utils.php"],
         "psr-4": {
             "LibMVault\\": "src/"
         }
