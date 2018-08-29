@@ -90,7 +90,7 @@ class PBSProfile implements \JsonSerializable {
    */
   public static function fromStdClass(\stdClass $record): PBSProfileResult {
     foreach (self::REQUIRED as $req) {
-      if (property_exists($record, $req)) {
+      if (!property_exists($record, $req)) {
         PBSProfileResult::err(new \InvalidArgumentException("Malformed PBS Profile. {$req} field is missing."));
       }
     }
