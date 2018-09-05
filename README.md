@@ -28,4 +28,4 @@ depending on the success of call.
 }
 ```
 
-2. Run `composer update` to pull in the package
+2. Run `composer require twincitiespublictelevision/libmvault:dev-master` to pull in the package
