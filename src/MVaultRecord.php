@@ -334,9 +334,9 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
-   * @return string
+   * @return string|null
    */
-  public function getNotes(): string {
+  public function getNotes(): ?string {
     return $this->_notes;
   }
 
