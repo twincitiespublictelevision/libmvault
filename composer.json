@@ -16,7 +16,12 @@
     "autoload": {
         "files": ["src/import_utils.php"],
         "psr-4": {
-            "LibMVault\\": "src/"
+            "LibMVault\\": "src/",
+            "Tests\\": "tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3",
+        "fzaninotto/faker": "^1.8"
     }
 }

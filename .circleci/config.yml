@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  test:
+    docker:
+    - image: circleci/php:7.1
+    steps:
+    - checkout
+    - run: composer install
+    - run: ./vendor/bin/phpunit
+    - store_test_results:
+        path: tests/results
+
+workflows:
+  version: 2
+  testing:
+    jobs:
+    - test
