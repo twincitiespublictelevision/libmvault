@@ -19,29 +19,34 @@ class PBSProfile implements \JsonSerializable {
   ];
 
   /**
-   * @var string
+   * @var string|null
    */
   private $_firstName;
 
   /**
-   * @var string
+   * @var string|null
    */
   private $_lastName;
 
   /**
-   * @var string
+   * @var string|null
    */
   private $_pid;
 
   /**
-   * @var string
+   * @var string|null
    */
   private $_email;
 
   /**
-   * @var string
+   * @var string|null
    */
   private $_loginProvider;
+
+  /**
+   * @var RetrievalStatus
+   */
+  private $_retrievalStatus;
 
   /**
    * PBSProfile constructor.
@@ -51,12 +56,13 @@ class PBSProfile implements \JsonSerializable {
    * @param string $email
    * @param string $loginProvider
    */
-  private function __construct(string $firstName, string $lastName, string $pid, string $email, string $loginProvider) {
+  private function __construct(?string $firstName, ?string $lastName, ?string $pid, ?string $email, ?string $loginProvider, RetrievalStatus $status) {
     $this->_firstName = $firstName;
     $this->_lastName = $lastName;
     $this->_pid = $pid;
     $this->_email = $email;
     $this->_loginProvider = $loginProvider;
+    $this->_retrievalStatus = $status;
   }
 
   /**
@@ -98,31 +104,30 @@ class PBSProfile implements \JsonSerializable {
       }
     }
 
-    if ($record->retrieval_status->status === 500) {
-      return PBSProfileResult::err(new \Exception($record->retrieval_status->message));
+    $retrievalStatusResult = RetrievalStatus::fromStdClass($record->retrieval_status);
+
+    if ($retrievalStatusResult->isError()) {
+      return PBSProfileResult::err($retrievalStatusResult->getErr());
+    } else {
+      $retrievalStatus = $retrievalStatusResult->value();
     }
 
-    if ($record->retrieval_status->status !== 200) {
-      return PBSProfileResult::err(
-        new \Exception(
-          "PBS returned unknown error. Code: {$record->retrieval_status->status}. Message: {$record->retrieval_status->message}"
-        )
-      );
-    }
-
-    foreach (self::SUCCESS_REQUIRED as $req) {
-      if (!property_exists($record, $req)) {
-        return PBSProfileResult::err(new \InvalidArgumentException("Malformed PBS Profile. {$req} field is missing."));
+    if ($retrievalStatus->getStatus() === 200) {
+      foreach (self::SUCCESS_REQUIRED as $req) {
+        if (!property_exists($record, $req)) {
+          return PBSProfileResult::err(new \InvalidArgumentException("Malformed PBS Profile. {$req} field is missing."));
+        }
       }
     }
 
     return PBSProfileResult::ok(
       new PBSProfile(
-        $record->first_name,
-        $record->last_name,
-        $record->UID,
-        $record->email,
-        $record->login_provider
+        $record->first_name ?? null,
+        $record->last_name ?? null,
+        $record->UID ?? null,
+        $record->email ?? null,
+        $record->login_provider ?? null,
+        $retrievalStatus
       )
     );
   }
@@ -131,13 +136,19 @@ class PBSProfile implements \JsonSerializable {
    * @return array
    */
   public function toArray(): array {
-    return [
-      'first_name' => $this->getFirstName(),
-      'last_name' => $this->getLastName(),
-      'UID' => $this->getPID(),
-      'email' => $this->getEmail(),
-      'login_provider' => $this->getLoginProvider()
+    $data = [
+      'retrieval_status' => $this->getRetrievalStatus()
     ];
+
+    if ($this->getRetrievalStatus()->getStatus() === 200) {
+      $data['first_name'] = $this->getFirstName();
+      $data['last_name'] = $this->getLastName();
+      $data['UID'] = $this->getPID();
+      $data['email'] = $this->getEmail();
+      $data['login_provider'] = $this->getLoginProvider();
+    }
+
+    return $data;
   }
 
   /**
@@ -148,38 +159,45 @@ class PBSProfile implements \JsonSerializable {
   }
 
   /**
-   * @return string
+   * @return string|null
    */
-  public function getFirstName(): string {
+  public function getFirstName(): ?string {
     return $this->_firstName;
   }
 
   /**
-   * @return string
+   * @return string|null
    */
-  public function getLastName(): string {
+  public function getLastName(): ?string {
     return $this->_lastName;
   }
 
   /**
-   * @return string
+   * @return string|null
    */
-  public function getPID(): string {
+  public function getPID(): ?string {
     return $this->_pid;
   }
 
   /**
-   * @return string
+   * @return string|null
    */
-  public function getEmail(): string {
+  public function getEmail(): ?string {
     return $this->_email;
   }
 
   /**
-   * @return string
+   * @return string|null
    */
-  public function getLoginProvider(): string {
+  public function getLoginProvider(): ?string {
     return $this->_loginProvider;
+  }
+
+  /**
+   * @return RetrievalStatus
+   */
+  public function getRetrievalStatus(): RetrievalStatus {
+    return $this->_retrievalStatus;
   }
 
   /**

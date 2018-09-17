@@ -134,7 +134,7 @@ class MVaultRecord implements \JsonSerializable {
     int $createDate, string $offer, string $membershipId, int $startDate,
     bool $status, string $token, bool $provisional, int $expireDate,
     ?int $activationDate = null, ?string $email = null, ?string $notes = null,
-    string $additionalMetadata = null, ?PBSProfile $profile = null
+    ?string $additionalMetadata = null, ?PBSProfile $profile = null
   ) {
     $this->_gracePeriod = $gracePeriod;
     $this->_updateDate = $updateDate;
@@ -368,9 +368,9 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
-   * @return string
+   * @return string|null
    */
-  public function getAdditionalMetadata(): string {
+  public function getAdditionalMetadata(): ?string {
     return $this->_additionalMetadata;
   }
 

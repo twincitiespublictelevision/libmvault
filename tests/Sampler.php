@@ -24,7 +24,7 @@ const SCHEMA = [
     'expire_date' => ['date'],
     'email' => ['string', ''],
     'current_state' => ['ref.current_state'],
-    'pbs_profile' => ['ref.pbs_profile', 'ref.pbs_profile_failure', 'null']
+    'pbs_profile' => ['ref.pbs_profile_success', 'ref.pbs_profile_failure', 'null']
   ],
   'current_state' => [
     'explanation' => ['ref.explanation'],
@@ -35,19 +35,19 @@ const SCHEMA = [
     'timing' => ['string'],
     'token_activated' => ['bool']
   ],
-  'pbs_profile' => [
+  'pbs_profile_success' => [
     'first_name' => ['string'],
     'last_name' => ['string'],
     'UID' => ['uuid'],
     'birth_date' => ['date', 'null'],
     'email' => ['email'],
     'login_provider' => ['PBS', 'Google', 'Facebook'],
-    'retrieval_status' => ['ref.retrieval_status']
+    'retrieval_status' => ['ref.retrieval_success']
   ],
   'pbs_profile_failure' => [
     'retrieval_status' => ['ref.retrieval_failure']
   ],
-  'retrieval_status' => [
+  'retrieval_success' => [
     'status' => [200],
     'message' => ['string']
   ],
