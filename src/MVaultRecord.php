@@ -3,7 +3,6 @@
 namespace LibMVault;
 
 use LibMVault\Result\MVaultResult;
-use LibMVault\Result\Result;
 
 /**
  * Class MVaultRecord
