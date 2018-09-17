@@ -3,7 +3,6 @@
 namespace LibMVault;
 
 use LibMVault\Result\PBSProfileResult;
-use LibMVault\Result\Result;
 
 /**
  * Class PBSProfile
@@ -12,6 +11,10 @@ use LibMVault\Result\Result;
 class PBSProfile implements \JsonSerializable {
 
   const REQUIRED = [
+    'retrieval_status'
+  ];
+
+  const SUCCESS_REQUIRED = [
     'first_name', 'last_name', 'UID', 'email', 'login_provider'
   ];
 
@@ -90,6 +93,24 @@ class PBSProfile implements \JsonSerializable {
    */
   public static function fromStdClass(\stdClass $record): PBSProfileResult {
     foreach (self::REQUIRED as $req) {
+      if (!property_exists($record, $req)) {
+        return PBSProfileResult::err(new \InvalidArgumentException("Malformed PBS Profile. {$req} field is missing."));
+      }
+    }
+
+    if ($record->retrieval_status->status === 500) {
+      return PBSProfileResult::err(new \Exception($record->retrieval_status->message));
+    }
+
+    if ($record->retrieval_status->status !== 200) {
+      return PBSProfileResult::err(
+        new \Exception(
+          "PBS returned unknown error. Code: {$record->retrieval_status->status}. Message: {$record->retrieval_status->message}"
+        )
+      );
+    }
+
+    foreach (self::SUCCESS_REQUIRED as $req) {
       if (!property_exists($record, $req)) {
         return PBSProfileResult::err(new \InvalidArgumentException("Malformed PBS Profile. {$req} field is missing."));
       }

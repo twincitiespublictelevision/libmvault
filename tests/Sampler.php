@@ -23,11 +23,11 @@ const SCHEMA = [
     'provisional' => ['bool'],
     'expire_date' => ['date'],
     'email' => ['string', ''],
-    'current_state' => ['ref'],
-    'pbs_profile' => ['ref', 'null']
+    'current_state' => ['ref.current_state'],
+    'pbs_profile' => ['ref.pbs_profile', 'ref.pbs_profile_failure', 'null']
   ],
   'current_state' => [
-    'explanation' => ['ref'],
+    'explanation' => ['ref.explanation'],
     'has_access' => ['bool']
   ],
   'explanation' => [
@@ -39,13 +39,22 @@ const SCHEMA = [
     'first_name' => ['string'],
     'last_name' => ['string'],
     'UID' => ['uuid'],
-    'birth_date' => ['date', null],
+    'birth_date' => ['date', 'null'],
     'email' => ['email'],
-    'login_provider' => ['PBS', 'Google', 'Facebook']
+    'login_provider' => ['PBS', 'Google', 'Facebook'],
+    'retrieval_status' => ['ref.retrieval_status']
+  ],
+  'pbs_profile_failure' => [
+    'retrieval_status' => ['ref.retrieval_failure']
   ],
   'retrieval_status' => [
-    'status' => ['number'],
+    'status' => [200],
     'message' => ['string']
+  ],
+  'retrieval_failure' => [
+    'status' => [500],
+    'message' => ['string'],
+    'UID' => ['uuid']
   ]
 ];
 
@@ -55,10 +64,6 @@ function generateObject(array $arr, array $schema, string $root, Generator $gen)
     $entry = $val[$k];
 
     switch ($entry) {
-      case 'ref':
-        $arr[$key] = generateObject([], $schema, $key, $gen);
-        break;
-
       case 'string':
         $arr[$key] = $gen->unique()->word;
         break;
@@ -88,7 +93,13 @@ function generateObject(array $arr, array $schema, string $root, Generator $gen)
         break;
 
       default:
-        $arr[$key] = $entry;
+        if (strpos($entry, 'ref.') === 0) {
+          $refRoot = explode('.', $entry)[1];
+          $arr[$key] = generateObject([], $schema, $refRoot, $gen);
+        } else {
+          $arr[$key] = $entry;
+        }
+
         break;
     }
   }

@@ -14,12 +14,13 @@ class PBSProfileTest extends TestCase {
     foreach (range(0, self::TESTS) as $t) {
       $sample = $s->sample('pbs_profile');
       $result = PBSProfile::fromStdClass($sample);
+      $msg = $result->getErr() ? $result->getErr()->getMessage() : '';
 
-      if ($result->isError()) {
-        $this->fail("PBSProfile parsing failed due to {$result->getErr()->getMessage()} for " . json_encode($sample));
+      if ($sample->retrieval_status->status === 200) {
+        $this->assertFalse($result->isError(), "PBSProfile parsing failed due to {$msg} for " . json_encode($sample));
+      } else {
+        $this->assertTrue($result->isError(), "PBSProfile parsing failed due to {$msg} for " . json_encode($sample));
       }
-
-      $this->assertFalse($result->isError());
     }
   }
 }

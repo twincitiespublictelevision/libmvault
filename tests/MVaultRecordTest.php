@@ -14,12 +14,13 @@ class MVaultRecordTest extends TestCase {
     foreach (range(0, self::TESTS) as $t) {
       $sample = $s->sample('root');
       $result = MVaultRecord::fromStdClass($sample);
+      $msg = $result->getErr() ? $result->getErr()->getMessage() : '';
 
-      if ($result->isError()) {
-        $this->fail("PBSProfile parsing failed due to {$result->getErr()->getMessage()} for " . json_encode($sample));
+      if ($sample->pbs_profile === null || $sample->pbs_profile->retrieval_status->status === 200) {
+        $this->assertFalse($result->isError(), "MVaultRecord parsing failed due to {$msg} for " . json_encode($sample));
+      } else {
+        $this->assertTrue($result->isError(), "MVaultRecord parsing failed due to {$msg} for " . json_encode($sample));
       }
-
-      $this->assertFalse($result->isError());
     }
   }
 }
