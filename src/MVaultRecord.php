@@ -55,7 +55,7 @@ class MVaultRecord implements \JsonSerializable {
   private $_offer;
 
   /**
-   * @var string
+   * @var string|null
    */
   private $_notes;
 
@@ -80,12 +80,12 @@ class MVaultRecord implements \JsonSerializable {
   private $_token;
 
   /**
-   * @var string
+   * @var string|null
    */
   private $_additionalMetadata;
 
   /**
-   * @var integer
+   * @var int|null
    */
   private $_activationDate;
 
@@ -100,12 +100,12 @@ class MVaultRecord implements \JsonSerializable {
   private $_expireDate;
 
   /**
-   * @var string
+   * @var string|null
    */
   private $_email;
 
   /**
-   * @var PBSProfile
+   * @var PBSProfile|null
    */
   private $_pbsProfile;
 
@@ -202,7 +202,7 @@ class MVaultRecord implements \JsonSerializable {
       // Required date fields are not allowed to fail parsing. If one does then
       // the entire MVault record should be invalidated
       if ($d === false) {
-        return MVaultResult::err(new \InvalidArgumentException("Malformed MVault record. {$req} date field is not correctly formatted."));
+        return MVaultResult::err(new \InvalidArgumentException("Malformed MVault record. {$dateField} date field is not correctly formatted."));
       }
 
       $dates[$dateField] = $d;
@@ -403,7 +403,7 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
-   * @return string|null
+   * @return PBSProfile|null
    */
   public function getPBSProfile(): ?PBSProfile {
     return $this->_pbsProfile;

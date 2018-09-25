@@ -24,10 +24,10 @@ class RetrievalStatusResult {
   }
 
   /**
-   * @param RetrievalStatus|null $value
+   * @param RetrievalStatus $value
    * @return RetrievalStatusResult
    */
-  public static function ok(?RetrievalStatus $value): RetrievalStatusResult {
+  public static function ok(RetrievalStatus $value): RetrievalStatusResult {
     return new RetrievalStatusResult(Result::ok($value));
   }
 
@@ -54,10 +54,10 @@ class RetrievalStatusResult {
   }
 
   /**
-   * @return RetrievalStatus|null
+   * @return RetrievalStatus
    * @throws \Exception
    */
-  public function value(): ?RetrievalStatus {
+  public function value(): RetrievalStatus {
     return $this->res->value();
   }
 
@@ -70,7 +70,7 @@ class RetrievalStatusResult {
 
   /**
    * @param mixed $fallback
-   * @return RetrievalStatus|null|mixed
+   * @return RetrievalStatus|mixed
    */
   public function valueOr($fallback) {
     return $this->res->valueOr($fallback);

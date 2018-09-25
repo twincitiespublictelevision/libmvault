@@ -24,10 +24,10 @@ class MVaultResult {
   }
 
   /**
-   * @param MVaultRecord|null $value
+   * @param MVaultRecord $value
    * @return MVaultResult
    */
-  public static function ok(?MVaultRecord $value): MVaultResult {
+  public static function ok(MVaultRecord $value): MVaultResult {
     return new MVaultResult(Result::ok($value));
   }
 
@@ -54,10 +54,10 @@ class MVaultResult {
   }
 
   /**
-   * @return MVaultRecord|null
+   * @return MVaultRecord
    * @throws \Exception
    */
-  public function value(): ?MVaultRecord {
+  public function value(): MVaultRecord {
     return $this->res->value();
   }
 

@@ -24,10 +24,10 @@ class PBSProfileResult {
   }
 
   /**
-   * @param PBSProfile|null $value
+   * @param PBSProfile $value
    * @return PBSProfileResult
    */
-  public static function ok(?PBSProfile $value): PBSProfileResult {
+  public static function ok(PBSProfile $value): PBSProfileResult {
     return new PBSProfileResult(Result::ok($value));
   }
 
@@ -54,10 +54,10 @@ class PBSProfileResult {
   }
 
   /**
-   * @return PBSProfile|null
+   * @return PBSProfile
    * @throws \Exception
    */
-  public function value(): ?PBSProfile {
+  public function value(): PBSProfile {
     return $this->res->value();
   }
 
@@ -70,7 +70,7 @@ class PBSProfileResult {
 
   /**
    * @param mixed $fallback
-   * @return PBSProfile|null|mixed
+   * @return PBSProfile|mixed
    */
   public function valueOr($fallback) {
     return $this->res->valueOr($fallback);

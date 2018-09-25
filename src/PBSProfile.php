@@ -52,7 +52,7 @@ class PBSProfile implements \JsonSerializable {
    * PBSProfile constructor.
    * @param string $firstName
    * @param string $lastName
-   * @param string $uid
+   * @param string $pid
    * @param string $email
    * @param string $loginProvider
    */

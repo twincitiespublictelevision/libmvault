@@ -35,11 +35,9 @@ class RetrievalStatus implements \JsonSerializable {
 
   /**
    * RetrievalStatus constructor.
-   * @param string $firstName
-   * @param string $lastName
-   * @param string $uid
-   * @param string $email
-   * @param string $loginProvider
+   * @param int $status
+   * @param string $message
+   * @param null|string $UID
    */
   private function __construct(int $status, string $message, ?string $UID) {
     $this->_status = $status;
