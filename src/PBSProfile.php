@@ -11,11 +11,11 @@ use LibMVault\Result\PBSProfileResult;
 class PBSProfile implements \JsonSerializable {
 
   const REQUIRED = [
-    'retrieval_status'
+    'retrieval_status', 'UID'
   ];
 
   const SUCCESS_REQUIRED = [
-    'first_name', 'last_name', 'UID', 'email', 'login_provider'
+    'first_name', 'last_name', 'email', 'login_provider'
   ];
 
   /**
@@ -137,13 +137,13 @@ class PBSProfile implements \JsonSerializable {
    */
   public function toArray(): array {
     $data = [
-      'retrieval_status' => $this->getRetrievalStatus()
+      'retrieval_status' => $this->getRetrievalStatus(),
+      'UID' => $this->getPID()
     ];
 
     if ($this->getRetrievalStatus()->getStatus() === 200) {
       $data['first_name'] = $this->getFirstName();
       $data['last_name'] = $this->getLastName();
-      $data['UID'] = $this->getPID();
       $data['email'] = $this->getEmail();
       $data['login_provider'] = $this->getLoginProvider();
     }
