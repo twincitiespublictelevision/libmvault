@@ -45,6 +45,7 @@ const SCHEMA = [
     'retrieval_status' => ['ref.retrieval_success']
   ],
   'pbs_profile_failure' => [
+    'UID' => ['uuid'],
     'retrieval_status' => ['ref.retrieval_failure']
   ],
   'retrieval_success' => [
@@ -53,8 +54,7 @@ const SCHEMA = [
   ],
   'retrieval_failure' => [
     'status' => [500],
-    'message' => ['string'],
-    'UID' => ['uuid']
+    'message' => ['string']
   ]
 ];
 

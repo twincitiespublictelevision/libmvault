@@ -14,10 +14,6 @@ class RetrievalStatus implements \JsonSerializable {
     'status', 'message'
   ];
 
-  const FAILURE_REQUIRED = [
-    'UID'
-  ];
-
   /**
    * @var integer
    */
@@ -29,20 +25,13 @@ class RetrievalStatus implements \JsonSerializable {
   private $_message;
 
   /**
-   * @var string|null
-   */
-  private $_UID;
-
-  /**
    * RetrievalStatus constructor.
    * @param int $status
    * @param string $message
-   * @param null|string $UID
    */
-  private function __construct(int $status, string $message, ?string $UID) {
+  private function __construct(int $status, string $message) {
     $this->_status = $status;
     $this->_message = $message;
-    $this->_UID = $UID;
   }
 
   /**
@@ -84,19 +73,10 @@ class RetrievalStatus implements \JsonSerializable {
       }
     }
 
-    if ($record->status === 500) {
-      foreach (self::FAILURE_REQUIRED as $fReq) {
-        if (!property_exists($record, $fReq)) {
-          return RetrievalStatusResult::err(new \InvalidArgumentException("Malformed retrieval status. {$fReq} field is missing"));
-        }
-      }
-    }
-
     return RetrievalStatusResult::ok(
       new RetrievalStatus(
         $record->status,
-        $record->message,
-        $record->UID ?? null
+        $record->message
       )
     );
   }
@@ -109,10 +89,6 @@ class RetrievalStatus implements \JsonSerializable {
       'status' => $this->getStatus(),
       'message' => $this->getMessage()
     ];
-
-    if ($this->getUID() !== null) {
-      $data['UID'] = $this->getUID();
-    }
 
     return $data;
   }
@@ -136,13 +112,6 @@ class RetrievalStatus implements \JsonSerializable {
    */
   public function getMessage(): string {
     return $this->_message;
-  }
-
-  /**
-   * @return string|null
-   */
-  public function getUID(): ?string {
-    return $this->_UID;
   }
 
   /**
