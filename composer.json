@@ -2,7 +2,7 @@
     "name": "twincitiespublictelevision/libmvault",
     "description": "General structures for working with PBS MVault data",
     "type": "library",
-    "license": "proprietary",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "TPT",
