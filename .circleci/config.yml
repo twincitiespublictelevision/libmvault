@@ -72,10 +72,18 @@ workflows:
             branches:
               only:
                 - qa
-      - create_docs:
+      - test:
           requires:
             - should_build
+      - create_docs:
+          requires:
+            - test
 
   testing:
     jobs:
-      - test
+      - test:
+          filters:
+            branches:
+              ignore:
+                - qa
+
