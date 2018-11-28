@@ -1,17 +1,81 @@
-version: 2
+version: 2.1
+
+orbs:
+  phpdocs: tpt/phpdocs@0.0.8
+
 jobs:
+  should_build:
+    docker:
+      - image: circleci/php:7.1
+    steps:
+      - restore_cache:
+          key: repo-{{ .Branch }}
+      - checkout
+      - run: echo $CIRCLE_SHA1 > .circle-sha
+      - run:
+          name: Should Cancel?
+          command: |
+            cd ~/project
+            ISBUILD=$(git log -1 --pretty=%B | grep "ci-build" | wc -l || true)
+            if [ "$ISBUILD" -gt 0 ]
+            then
+              curl -X POST https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM/cancel?circle-token=$CIRCLECI_TOKEN
+              sleep 30
+            fi
+      - save_cache:
+          key: repo-{{ .Branch }}-{{ checksum ".circle-sha" }}
+          paths:
+            - ~/project
+
   test:
     docker:
-    - image: circleci/php:7.1
+      - image: circleci/php:7.1
     steps:
-    - checkout
-    - run: composer install
-    - run: ./vendor/bin/phpunit
-    - store_test_results:
-        path: tests/results
+      - checkout
+      - run: composer install
+      - run: ./vendor/bin/phpunit
+      - store_test_results:
+          path: tests/results
+
+  create_docs:
+    docker:
+      - image: circleci/php:7.1
+    steps:
+      - run: echo $CIRCLE_SHA1 > .circle-sha
+      - restore_cache:
+          key: repo-{{ .Branch }}-{{ checksum ".circle-sha" }}
+      - run:
+          name: Delete existing docs
+          command: rm -rf ~/project/docs/*
+      - phpdocs/generate_php_docs:
+          src: ~/project/src
+          docs: ~/project/docs/
+      - run:
+          command: |
+            rm .circle-sha
+            mkdir -p ~/.ssh
+            touch ~/.ssh/known_hosts
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
+            git add .
+            git status
+            git config --global user.email webmaster@tpt.org
+            git config --global user.name tptwebmaster
+            git diff-index --quiet HEAD || git commit -m 'Circle Build [ci-build]'
+            git push origin $CIRCLE_BRANCH
 
 workflows:
   version: 2
+  docs:
+    jobs:
+      - should_build:
+          filters:
+            branches:
+              only:
+                - qa
+      - create_docs:
+          - requires:
+              - should_build
+
   testing:
     jobs:
-    - test
+      - test
