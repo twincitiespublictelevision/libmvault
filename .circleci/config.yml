@@ -68,6 +68,7 @@ workflows:
   docs:
     jobs:
       - should_build:
+          context: staging
           filters:
             branches:
               only:
