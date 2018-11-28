@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>LibMVault\MVaultRecord | API</title>
+
+            <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="../css/min.css">
+        <link rel="stylesheet" type="text/css" href="../css/prism.css">
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,400italic' rel='stylesheet' type='text/css'>
+        <script src="../js/prism.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:LibMVault_MVaultRecord" data-root-path="../">
+            <nav>
+    <div class="container">
+      <div class="title">
+        <a href="../index.html">API</a>
+      </div>
+      <ul>
+        <li><a href="../classes.html">Classes</a></li>
+                  <li><a href="../namespaces.html">Namespaces</a></li>
+                <li><a href="../interfaces.html">Interfaces</a></li>
+        <li><a href="../traits.html">Traits</a></li>
+        <li><a href="../doc-index.html">Index</a></li>
+        <li><a href="../search.html">Search</a></li>
+      </ul>
+                  <ol class="breadcrumb">
+                                  <li><a href="../LibMVault.html">LibMVault</a></li>
+  
+            <li>MVaultRecord</li>
+        </ol>
+        </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+        <div id="control-panel">
+      </div>
+
+        <div id="api-tree"></div>
+
+    </div>
+    <div class="row">
+          <h1>MVaultRecord</h1>
+
+    <p>    class
+    <strong>MVaultRecord</strong>        implements
+        <a target="_blank" href="http://php.net/JsonSerializable"><abbr title="JsonSerializable">JsonSerializable</abbr></a>
+</p>
+
+            <p>Class MVaultRecord</p>            
+    
+            <h2>Constants</h2>
+
+            <table class="table">
+                    <tr>
+                <td><code class="language-php">REQUIRED =  [</code></td>
+                <td>
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td><code class="language-php">REQUIRED_DATES =  [</code></td>
+                <td>
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td><code class="language-php">DATEFORMAT =  &#039;Y-m-d\TH:i:s\Z&#039;;</code></td>
+                <td>
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table class="table">
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                    static                </code>
+            </td>
+            <td class="text-right"><code class="language-php"><a href="../LibMVault/Result/MVaultResult.html"><abbr title="LibMVault\Result\MVaultResult">MVaultResult</abbr></a></code></td>
+            <td>
+                <code class="language-php"><a href="#method_fromJSON">fromJSON</a>(string $record)</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                    static                </code>
+            </td>
+            <td class="text-right"><code class="language-php"><a href="../LibMVault/Result/MVaultResult.html"><abbr title="LibMVault\Result\MVaultResult">MVaultResult</abbr></a></code></td>
+            <td>
+                <code class="language-php"><a href="#method_fromArray">fromArray</a>(array $record)</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                    static                </code>
+            </td>
+            <td class="text-right"><code class="language-php"><a href="../LibMVault/Result/MVaultResult.html"><abbr title="LibMVault\Result\MVaultResult">MVaultResult</abbr></a></code></td>
+            <td>
+                <code class="language-php"><a href="#method_fromStdClass">fromStdClass</a>(<a target="_blank" href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a> $record)</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">array</code></td>
+            <td>
+                <code class="language-php"><a href="#method_toArray">toArray</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php"><a target="_blank" href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a></code></td>
+            <td>
+                <code class="language-php"><a href="#method_toStdClass">toStdClass</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">int</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getGracePeriod">getGracePeriod</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">int</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getCreateDate">getCreateDate</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">int</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getUpdateDate">getUpdateDate</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">string</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getFirstName">getFirstName</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">string</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getLastName">getLastName</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">string</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getOffer">getOffer</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">string|null</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getNotes">getNotes</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">string</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getMembershipId">getMembershipId</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">int</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getStartDate">getStartDate</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">bool</code></td>
+            <td>
+                <code class="language-php"><a href="#method_isStatusOn">isStatusOn</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">string</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getToken">getToken</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">string|null</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getAdditionalMetadata">getAdditionalMetadata</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">int|null</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getActivationDate">getActivationDate</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">bool</code></td>
+            <td>
+                <code class="language-php"><a href="#method_isProvisional">isProvisional</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">int</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getExpireDate">getExpireDate</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">string|null</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getEmail">getEmail</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php"><abbr title="LibMVault\LibMVault\PBSProfile">PBSProfile</abbr>|null</code></td>
+            <td>
+                <code class="language-php"><a href="#method_getPBSProfile">getPBSProfile</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">bool</code></td>
+            <td>
+                <code class="language-php"><a href="#method_isActivated">isActivated</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>
+                <code class="language-php">
+                                                            public                                    </code>
+            </td>
+            <td class="text-right"><code class="language-php">mixed</code></td>
+            <td>
+                <code class="language-php"><a href="#method_jsonSerialize">jsonSerialize</a>()</code>
+            </td>
+            <td>
+                                    No description
+                            </td>
+            <td></td>
+        </tr>
+        </table>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.162">162</a>
+                    </div>
+        <div>
+            <h3 id="method_fromJSON"><code class="language-php">fromJSON()</code></h3>
+            <code class="language-php">public static <a href="../LibMVault/Result/MVaultResult.html"><abbr title="LibMVault\Result\MVaultResult">MVaultResult</abbr></a>&nbsp;fromJSON(string $record)</code>
+        </div>
+    </div>
+
+    <div class="details">
+                            <h4>Parameters</h4>
+
+                <table class="table">
+                    <tr>
+                <td><code class="language-php">string</code></td>
+                <td><code class="language-php">$record</code></td>
+                <td></td>
+            </tr>
+            </table>
+
+        
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php"><a href="../LibMVault/Result/MVaultResult.html"><abbr title="LibMVault\Result\MVaultResult">MVaultResult</abbr></a></code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.175">175</a>
+                    </div>
+        <div>
+            <h3 id="method_fromArray"><code class="language-php">fromArray()</code></h3>
+            <code class="language-php">public static <a href="../LibMVault/Result/MVaultResult.html"><abbr title="LibMVault\Result\MVaultResult">MVaultResult</abbr></a>&nbsp;fromArray(array $record)</code>
+        </div>
+    </div>
+
+    <div class="details">
+                            <h4>Parameters</h4>
+
+                <table class="table">
+                    <tr>
+                <td><code class="language-php">array</code></td>
+                <td><code class="language-php">$record</code></td>
+                <td></td>
+            </tr>
+            </table>
+
+        
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php"><a href="../LibMVault/Result/MVaultResult.html"><abbr title="LibMVault\Result\MVaultResult">MVaultResult</abbr></a></code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.190">190</a>
+                    </div>
+        <div>
+            <h3 id="method_fromStdClass"><code class="language-php">fromStdClass()</code></h3>
+            <code class="language-php">public static <a href="../LibMVault/Result/MVaultResult.html"><abbr title="LibMVault\Result\MVaultResult">MVaultResult</abbr></a>&nbsp;fromStdClass(<a target="_blank" href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a> $record)</code>
+        </div>
+    </div>
+
+    <div class="details">
+                            <h4>Parameters</h4>
+
+                <table class="table">
+                    <tr>
+                <td><code class="language-php"><a target="_blank" href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a></code></td>
+                <td><code class="language-php">$record</code></td>
+                <td></td>
+            </tr>
+            </table>
+
+        
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php"><a href="../LibMVault/Result/MVaultResult.html"><abbr title="LibMVault\Result\MVaultResult">MVaultResult</abbr></a></code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.264">264</a>
+                    </div>
+        <div>
+            <h3 id="method_toArray"><code class="language-php">toArray()</code></h3>
+            <code class="language-php">public array&nbsp;toArray()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">array</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.289">289</a>
+                    </div>
+        <div>
+            <h3 id="method_toStdClass"><code class="language-php">toStdClass()</code></h3>
+            <code class="language-php">public <a target="_blank" href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a>&nbsp;toStdClass()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php"><a target="_blank" href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a></code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.296">296</a>
+                    </div>
+        <div>
+            <h3 id="method_getGracePeriod"><code class="language-php">getGracePeriod()</code></h3>
+            <code class="language-php">public int&nbsp;getGracePeriod()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">int</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.303">303</a>
+                    </div>
+        <div>
+            <h3 id="method_getCreateDate"><code class="language-php">getCreateDate()</code></h3>
+            <code class="language-php">public int&nbsp;getCreateDate()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">int</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.310">310</a>
+                    </div>
+        <div>
+            <h3 id="method_getUpdateDate"><code class="language-php">getUpdateDate()</code></h3>
+            <code class="language-php">public int&nbsp;getUpdateDate()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">int</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.317">317</a>
+                    </div>
+        <div>
+            <h3 id="method_getFirstName"><code class="language-php">getFirstName()</code></h3>
+            <code class="language-php">public string&nbsp;getFirstName()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.324">324</a>
+                    </div>
+        <div>
+            <h3 id="method_getLastName"><code class="language-php">getLastName()</code></h3>
+            <code class="language-php">public string&nbsp;getLastName()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.331">331</a>
+                    </div>
+        <div>
+            <h3 id="method_getOffer"><code class="language-php">getOffer()</code></h3>
+            <code class="language-php">public string&nbsp;getOffer()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.338">338</a>
+                    </div>
+        <div>
+            <h3 id="method_getNotes"><code class="language-php">getNotes()</code></h3>
+            <code class="language-php">public string|null&nbsp;getNotes()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string|null</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.345">345</a>
+                    </div>
+        <div>
+            <h3 id="method_getMembershipId"><code class="language-php">getMembershipId()</code></h3>
+            <code class="language-php">public string&nbsp;getMembershipId()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.352">352</a>
+                    </div>
+        <div>
+            <h3 id="method_getStartDate"><code class="language-php">getStartDate()</code></h3>
+            <code class="language-php">public int&nbsp;getStartDate()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">int</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.359">359</a>
+                    </div>
+        <div>
+            <h3 id="method_isStatusOn"><code class="language-php">isStatusOn()</code></h3>
+            <code class="language-php">public bool&nbsp;isStatusOn()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">bool</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.366">366</a>
+                    </div>
+        <div>
+            <h3 id="method_getToken"><code class="language-php">getToken()</code></h3>
+            <code class="language-php">public string&nbsp;getToken()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.373">373</a>
+                    </div>
+        <div>
+            <h3 id="method_getAdditionalMetadata"><code class="language-php">getAdditionalMetadata()</code></h3>
+            <code class="language-php">public string|null&nbsp;getAdditionalMetadata()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string|null</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.380">380</a>
+                    </div>
+        <div>
+            <h3 id="method_getActivationDate"><code class="language-php">getActivationDate()</code></h3>
+            <code class="language-php">public int|null&nbsp;getActivationDate()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">int|null</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.387">387</a>
+                    </div>
+        <div>
+            <h3 id="method_isProvisional"><code class="language-php">isProvisional()</code></h3>
+            <code class="language-php">public bool&nbsp;isProvisional()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">bool</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.394">394</a>
+                    </div>
+        <div>
+            <h3 id="method_getExpireDate"><code class="language-php">getExpireDate()</code></h3>
+            <code class="language-php">public int&nbsp;getExpireDate()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">int</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.401">401</a>
+                    </div>
+        <div>
+            <h3 id="method_getEmail"><code class="language-php">getEmail()</code></h3>
+            <code class="language-php">public string|null&nbsp;getEmail()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string|null</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.408">408</a>
+                    </div>
+        <div>
+            <h3 id="method_getPBSProfile"><code class="language-php">getPBSProfile()</code></h3>
+            <code class="language-php">public <abbr title="LibMVault\LibMVault\PBSProfile">PBSProfile</abbr>|null&nbsp;getPBSProfile()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php"><abbr title="LibMVault\LibMVault\PBSProfile">PBSProfile</abbr>|null</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.415">415</a>
+                    </div>
+        <div>
+            <h3 id="method_isActivated"><code class="language-php">isActivated()</code></h3>
+            <code class="language-php">public bool&nbsp;isActivated()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">bool</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.422">422</a>
+                    </div>
+        <div>
+            <h3 id="method_jsonSerialize"><code class="language-php">jsonSerialize()</code></h3>
+            <code class="language-php">public mixed&nbsp;jsonSerialize()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">mixed</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+            </div>
+
+    
+    <h2>Source code</h2>
+    <pre class="language-php line-numbers" id="source"><code>&lt;?php
+
+namespace LibMVault;
+
+use LibMVault\Result\MVaultResult;
+
+/**
+ * Class MVaultRecord
+ * @package LibMVault
+ */
+class MVaultRecord implements \JsonSerializable {
+
+  const REQUIRED = [
+    &#039;first_name&#039;, &#039;last_name&#039;, &#039;create_date&#039;, &#039;grace_period&#039;, &#039;update_date&#039;,
+    &#039;offer&#039;, &#039;membership_id&#039;, &#039;start_date&#039;, &#039;status&#039;, &#039;token&#039;,
+    &#039;provisional&#039;, &#039;expire_date&#039;, &#039;activation_date&#039;, &#039;notes&#039;, &#039;email&#039;,
+    &#039;pbs_profile&#039;, &#039;additional_metadata&#039;
+  ];
+
+  const REQUIRED_DATES = [
+    &#039;grace_period&#039;, &#039;update_date&#039;, &#039;create_date&#039;,
+    &#039;start_date&#039;, &#039;expire_date&#039;
+  ];
+
+  const DATEFORMAT = &#039;Y-m-d\TH:i:s\Z&#039;;
+
+  /**
+   * @var integer
+   */
+  private $_gracePeriod;
+
+  /**
+   * @var integer
+   */
+  private $_createDate;
+
+  /**
+   * @var integer
+   */
+  private $_updateDate;
+
+  /**
+   * @var string
+   */
+  private $_firstName;
+
+  /**
+   * @var string
+   */
+  private $_lastName;
+
+  /**
+   * @var string
+   */
+  private $_offer;
+
+  /**
+   * @var string|null
+   */
+  private $_notes;
+
+  /**
+   * @var string
+   */
+  private $_membershipId;
+
+  /**
+   * @var integer
+   */
+  private $_startDate;
+
+  /**
+   * @var bool
+   */
+  private $_status;
+
+  /**
+   * @var string
+   */
+  private $_token;
+
+  /**
+   * @var string|null
+   */
+  private $_additionalMetadata;
+
+  /**
+   * @var int|null
+   */
+  private $_activationDate;
+
+  /**
+   * @var bool
+   */
+  private $_provisional;
+
+  /**
+   * @var integer
+   */
+  private $_expireDate;
+
+  /**
+   * @var string|null
+   */
+  private $_email;
+
+  /**
+   * @var PBSProfile|null
+   */
+  private $_pbsProfile;
+
+  /**
+   * MVaultRecord constructor.
+   * @param int $gracePeriod
+   * @param int $updateDate
+   * @param string $firstName
+   * @param string $lastName
+   * @param int $createDate
+   * @param string $offer
+   * @param string $membershipId
+   * @param int $startDate
+   * @param bool $status
+   * @param string $token
+   * @param bool $provisional
+   * @param int $expireDate
+   * @param int|null $activationDate
+   * @param null|string $email
+   * @param null|string $notes
+   * @param string|null $additionalMetadata
+   * @param null|PBSProfile $profile
+   */
+  private function __construct(
+    int $gracePeriod, int $updateDate, string $firstName, string $lastName,
+    int $createDate, string $offer, string $membershipId, int $startDate,
+    bool $status, string $token, bool $provisional, int $expireDate,
+    ?int $activationDate = null, ?string $email = null, ?string $notes = null,
+    ?string $additionalMetadata = null, ?PBSProfile $profile = null
+  ) {
+    $this-&gt;_gracePeriod = $gracePeriod;
+    $this-&gt;_updateDate = $updateDate;
+    $this-&gt;_firstName = $firstName;
+    $this-&gt;_lastName = $lastName;
+    $this-&gt;_createDate = $createDate;
+    $this-&gt;_offer = $offer;
+    $this-&gt;_membershipId = $membershipId;
+    $this-&gt;_startDate = $startDate;
+    $this-&gt;_status = $status;
+    $this-&gt;_token = $token;
+    $this-&gt;_activationDate = $activationDate;
+    $this-&gt;_provisional = $provisional;
+    $this-&gt;_expireDate = $expireDate;
+    $this-&gt;_email = $email;
+    $this-&gt;_notes = $notes;
+    $this-&gt;_additionalMetadata = $additionalMetadata;
+    $this-&gt;_pbsProfile = $profile;
+  }
+
+  /**
+   * @param string $record
+   * @return MVaultResult
+   */
+  public static function fromJSON(string $record): MVaultResult {
+    try {
+      $parsed = ex_json_decode($record);
+      return self::fromStdClass($parsed);
+    } catch (\Exception $e) {
+      return MVaultResult::err($e);
+    }
+  }
+
+  /**
+   * @param array $record
+   * @return MVaultResult
+   */
+  public static function fromArray(array $record): MVaultResult {
+
+    // Records do not get terribly large, so for simplicity we encode and then
+    // decode from JSON at the cost of a little performance
+    try {
+      return self::fromJSON(ex_json_encode($record));
+    } catch (\Exception $e) {
+      return MVaultResult::err($e);
+    }
+  }
+
+  /**
+   * @param \stdClass $record
+   * @return MVaultResult
+   */
+  public static function fromStdClass(\stdClass $record): MVaultResult {
+    foreach (self::REQUIRED as $req) {
+      if (!property_exists($record, $req)) {
+        return MVaultResult::err(new \InvalidArgumentException(&quot;Malformed MVault record. {$req} field is missing.&quot;));
+      }
+    }
+
+    $dates = [];
+
+    foreach (self::REQUIRED_DATES as $dateField) {
+      $d = strtotime($record-&gt;{$dateField});
+
+      // Required date fields are not allowed to fail parsing. If one does then
+      // the entire MVault record should be invalidated
+      if ($d === false) {
+        return MVaultResult::err(new \InvalidArgumentException(&quot;Malformed MVault record. {$dateField} date field is not correctly formatted.&quot;));
+      }
+
+      $dates[$dateField] = $d;
+    }
+
+    $activation = null;
+
+    // Activation date is optional, but if it is present it is NOT OPTIONAL
+    // that parsing of the date succeeds. If it does fail, then the record needs
+    // to be invalidated
+    if (isset($record-&gt;activation_date) &amp;&amp; $record-&gt;activation_date) {
+      $activation = strtotime($record-&gt;activation_date);
+
+      if ($activation === false) {
+        return MVaultResult::err(new \InvalidArgumentException(&quot;Malformed MVault record. Activation date field is not correctly formatted.&quot;));
+      }
+    }
+
+    $profile = null;
+
+    // Like activation dates, the PBS profile is allowed to be missing. But if
+    // it exists then it must parse to a valid PBS Profile object
+    if (isset($record-&gt;pbs_profile) &amp;&amp; $record-&gt;pbs_profile) {
+      $profileRes = PBSProfile::fromStdClass($record-&gt;pbs_profile);
+
+      if ($profileRes-&gt;isError()) {
+        return MVaultResult::err($profileRes-&gt;getErr());
+      }
+
+      $profile = $profileRes-&gt;value();
+    }
+
+    return MVaultResult::ok(
+      new MVaultRecord(
+        $dates[&#039;grace_period&#039;],
+        $dates[&#039;update_date&#039;],
+        $record-&gt;first_name,
+        $record-&gt;last_name,
+        $dates[&#039;create_date&#039;],
+        $record-&gt;offer,
+        $record-&gt;membership_id,
+        $dates[&#039;start_date&#039;],
+        $record-&gt;status === &quot;On&quot;,
+        $record-&gt;token,
+        $record-&gt;provisional,
+        $dates[&#039;expire_date&#039;],
+        $activation,
+        $record-&gt;email ?? null,
+        $record-&gt;notes ?? null,
+        $record-&gt;additional_metadata ?? null,
+        $profile
+      )
+    );
+  }
+
+  /**
+   * @return array
+   */
+  public function toArray(): array {
+    return [
+      &#039;grace_period&#039; =&gt; gmdate(self::DATEFORMAT, $this-&gt;getGracePeriod()),
+      &#039;update_date&#039; =&gt; gmdate(self::DATEFORMAT, $this-&gt;getUpdateDate()),
+      &#039;first_name&#039; =&gt; $this-&gt;getFirstName(),
+      &#039;last_name&#039; =&gt; $this-&gt;getLastName(),
+      &#039;create_date&#039; =&gt; gmdate(self::DATEFORMAT, $this-&gt;getCreateDate()),
+      &#039;offer&#039; =&gt; $this-&gt;getOffer(),
+      &#039;membership_id&#039; =&gt; $this-&gt;getMembershipId(),
+      &#039;start_date&#039; =&gt; gmdate(self::DATEFORMAT, $this-&gt;getStartDate()),
+      &#039;status&#039; =&gt; $this-&gt;isStatusOn() ? &quot;On&quot; : &quot;Off&quot;,
+      &#039;token&#039; =&gt; $this-&gt;getToken(),
+      &#039;provisional&#039; =&gt; $this-&gt;isProvisional(),
+      &#039;expire_date&#039; =&gt; gmdate(self::DATEFORMAT, $this-&gt;getExpireDate()),
+      &#039;activation_date&#039; =&gt; $this-&gt;getActivationDate() ? gmdate(self::DATEFORMAT, $this-&gt;getActivationDate()) : null,
+      &#039;email&#039; =&gt; $this-&gt;getEmail(),
+      &#039;notes&#039; =&gt; $this-&gt;getNotes(),
+      &#039;additional_metadata&#039; =&gt; $this-&gt;getAdditionalMetadata(),
+      &#039;pbs_profile&#039; =&gt; $this-&gt;getPBSProfile() ? $this-&gt;getPBSProfile()-&gt;toArray() : null
+    ];
+  }
+
+  /**
+   * @return \stdClass
+   */
+  public function toStdClass(): \stdClass {
+    return json_decode(json_encode($this));
+  }
+
+  /**
+   * @return int
+   */
+  public function getGracePeriod(): int {
+    return $this-&gt;_gracePeriod;
+  }
+
+  /**
+   * @return int
+   */
+  public function getCreateDate(): int {
+    return $this-&gt;_createDate;
+  }
+
+  /**
+   * @return int
+   */
+  public function getUpdateDate(): int {
+    return $this-&gt;_updateDate;
+  }
+
+  /**
+   * @return string
+   */
+  public function getFirstName(): string {
+    return $this-&gt;_firstName;
+  }
+
+  /**
+   * @return string
+   */
+  public function getLastName(): string {
+    return $this-&gt;_lastName;
+  }
+
+  /**
+   * @return string
+   */
+  public function getOffer(): string {
+    return $this-&gt;_offer;
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getNotes(): ?string {
+    return $this-&gt;_notes;
+  }
+
+  /**
+   * @return string
+   */
+  public function getMembershipId(): string {
+    return $this-&gt;_membershipId;
+  }
+
+  /**
+   * @return int
+   */
+  public function getStartDate(): int {
+    return $this-&gt;_startDate;
+  }
+
+  /**
+   * @return bool
+   */
+  public function isStatusOn(): bool {
+    return $this-&gt;_status;
+  }
+
+  /**
+   * @return string
+   */
+  public function getToken(): string {
+    return $this-&gt;_token;
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getAdditionalMetadata(): ?string {
+    return $this-&gt;_additionalMetadata;
+  }
+
+  /**
+   * @return int|null
+   */
+  public function getActivationDate(): ?int {
+    return $this-&gt;_activationDate;
+  }
+
+  /**
+   * @return bool
+   */
+  public function isProvisional(): bool {
+    return $this-&gt;_provisional;
+  }
+
+  /**
+   * @return int
+   */
+  public function getExpireDate(): int {
+    return $this-&gt;_expireDate;
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getEmail(): ?string {
+    return $this-&gt;_email;
+  }
+
+  /**
+   * @return PBSProfile|null
+   */
+  public function getPBSProfile(): ?PBSProfile {
+    return $this-&gt;_pbsProfile;
+  }
+
+  /**
+   * @return bool
+   */
+  public function isActivated(): bool {
+    return $this-&gt;getPBSProfile() !== null;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function jsonSerialize() {
+    return $this-&gt;toArray();
+  }
+}</code></pre>
+    </div>
+    <div class="row">
+        <div id="footer">
+    Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a> using <a href="https://github.com/nochso/sami-theme">nochso/sami-theme</a>.
+  </div>
+
+    </div>
+  </div>
+    </body>
+
+</html>
