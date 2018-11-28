@@ -73,8 +73,8 @@ workflows:
               only:
                 - qa
       - create_docs:
-          - requires:
-              - should_build
+          requires:
+            - should_build
 
   testing:
     jobs:
