@@ -74,4 +74,4 @@ try {
 }
 ```
 
-2. Run `composer require twincitiespublictelevision/libmvault:dev-master` to pull in the package
+2. Run `composer require twincitiespublictelevision/libmvault` to pull in the package
