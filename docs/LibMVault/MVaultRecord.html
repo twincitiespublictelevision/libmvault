@@ -55,7 +55,17 @@
         <a target="_blank" href="http://php.net/JsonSerializable"><abbr title="JsonSerializable">JsonSerializable</abbr></a>
 </p>
 
-            <p>Class MVaultRecord</p>            
+            <p>Class MVaultRecord</p>        <p>Represents a response from the MVault API. Required fields should mirror the
+fields that exist in an MVault response. These fields only need be present in
+the value passed in for parsing, they do not need to have actual values and
+may be null.</p>
+
+<p>Date fields must be able to be parsed. If a date field fails to parse then
+the entire record is considered invalid. There is one caveat to this rule for
+the activation_date field. The activation date is also allowed to be null,
+in which case it is a valid date field that can not be parsed. If the
+activation date contains a truthy value though, then it must be able to be
+parsed.</p>    
     
             <h2>Constants</h2>
 
@@ -168,8 +178,7 @@
                 <code class="language-php"><a href="#method_getGracePeriod">getGracePeriod</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets an integer representation of the grace period end date.            </td>
             <td></td>
         </tr>
             <tr>
@@ -182,8 +191,7 @@
                 <code class="language-php"><a href="#method_getCreateDate">getCreateDate</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets an integer representation of the record creation date.            </td>
             <td></td>
         </tr>
             <tr>
@@ -196,8 +204,7 @@
                 <code class="language-php"><a href="#method_getUpdateDate">getUpdateDate</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets an integer representation of the record last updated date.            </td>
             <td></td>
         </tr>
             <tr>
@@ -210,8 +217,7 @@
                 <code class="language-php"><a href="#method_getFirstName">getFirstName</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the first name stored in the Mvault record.            </td>
             <td></td>
         </tr>
             <tr>
@@ -224,8 +230,7 @@
                 <code class="language-php"><a href="#method_getLastName">getLastName</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the last name stored in the Mvault record.            </td>
             <td></td>
         </tr>
             <tr>
@@ -238,8 +243,7 @@
                 <code class="language-php"><a href="#method_getOffer">getOffer</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the offer assigned to the MVault record.            </td>
             <td></td>
         </tr>
             <tr>
@@ -252,8 +256,7 @@
                 <code class="language-php"><a href="#method_getNotes">getNotes</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the optional notes field of the MVault record.            </td>
             <td></td>
         </tr>
             <tr>
@@ -266,8 +269,7 @@
                 <code class="language-php"><a href="#method_getMembershipId">getMembershipId</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the membership id of the MVault record.            </td>
             <td></td>
         </tr>
             <tr>
@@ -280,8 +282,7 @@
                 <code class="language-php"><a href="#method_getStartDate">getStartDate</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets an integer representation of the record start date            </td>
             <td></td>
         </tr>
             <tr>
@@ -294,8 +295,7 @@
                 <code class="language-php"><a href="#method_isStatusOn">isStatusOn</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the boolean status of the Status toggle of the MVault record.            </td>
             <td></td>
         </tr>
             <tr>
@@ -308,8 +308,7 @@
                 <code class="language-php"><a href="#method_getToken">getToken</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the token string of the MVault record.            </td>
             <td></td>
         </tr>
             <tr>
@@ -322,8 +321,7 @@
                 <code class="language-php"><a href="#method_getAdditionalMetadata">getAdditionalMetadata</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the optional additional metadata field of the MVault record.            </td>
             <td></td>
         </tr>
             <tr>
@@ -336,8 +334,8 @@
                 <code class="language-php"><a href="#method_getActivationDate">getActivationDate</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets an integer representation of the activation start date. This value may
+be null, representing that the record has not been activated.            </td>
             <td></td>
         </tr>
             <tr>
@@ -350,8 +348,7 @@
                 <code class="language-php"><a href="#method_isProvisional">isProvisional</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the boolean status of the Provisional toggle of the MVault record.            </td>
             <td></td>
         </tr>
             <tr>
@@ -364,8 +361,7 @@
                 <code class="language-php"><a href="#method_getExpireDate">getExpireDate</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets an integer representation of the record expiration date            </td>
             <td></td>
         </tr>
             <tr>
@@ -378,8 +374,7 @@
                 <code class="language-php"><a href="#method_getEmail">getEmail</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the email stored in the Mvault record.            </td>
             <td></td>
         </tr>
             <tr>
@@ -392,8 +387,9 @@
                 <code class="language-php"><a href="#method_getPBSProfile">getPBSProfile</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the object representing the PBS profile sub-request that is made for
+activate MVault records. This may return null in the case that the MVault
+record has not yet been activated.            </td>
             <td></td>
         </tr>
             <tr>
@@ -406,8 +402,7 @@
                 <code class="language-php"><a href="#method_isActivated">isActivated</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the boolean activation of the MVault record.            </td>
             <td></td>
         </tr>
             <tr>
@@ -432,7 +427,7 @@
             <div id="method-details">
                         <div>
         <div class="float-right">
-                            at line <a href="#source.162">162</a>
+                            at line <a href="#source.184">184</a>
                     </div>
         <div>
             <h3 id="method_fromJSON"><code class="language-php">fromJSON()</code></h3>
@@ -467,7 +462,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.175">175</a>
+                            at line <a href="#source.197">197</a>
                     </div>
         <div>
             <h3 id="method_fromArray"><code class="language-php">fromArray()</code></h3>
@@ -502,7 +497,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.190">190</a>
+                            at line <a href="#source.212">212</a>
                     </div>
         <div>
             <h3 id="method_fromStdClass"><code class="language-php">fromStdClass()</code></h3>
@@ -537,7 +532,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.264">264</a>
+                            at line <a href="#source.286">286</a>
                     </div>
         <div>
             <h3 id="method_toArray"><code class="language-php">toArray()</code></h3>
@@ -562,7 +557,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.289">289</a>
+                            at line <a href="#source.311">311</a>
                     </div>
         <div>
             <h3 id="method_toStdClass"><code class="language-php">toStdClass()</code></h3>
@@ -587,7 +582,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.296">296</a>
+                            at line <a href="#source.320">320</a>
                     </div>
         <div>
             <h3 id="method_getGracePeriod"><code class="language-php">getGracePeriod()</code></h3>
@@ -596,6 +591,8 @@
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets an integer representation of the grace period end date.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -612,7 +609,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.303">303</a>
+                            at line <a href="#source.329">329</a>
                     </div>
         <div>
             <h3 id="method_getCreateDate"><code class="language-php">getCreateDate()</code></h3>
@@ -621,112 +618,14 @@
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets an integer representation of the record creation date.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
                 <table class="table">
         <tr>
             <td><code class="language-php">int</code></td>
-            <td></td>
-        </tr>
-    </table>
-
-        
-        
-            </div>
-
-                        <div>
-        <div class="float-right">
-                            at line <a href="#source.310">310</a>
-                    </div>
-        <div>
-            <h3 id="method_getUpdateDate"><code class="language-php">getUpdateDate()</code></h3>
-            <code class="language-php">public int&nbsp;getUpdateDate()</code>
-        </div>
-    </div>
-
-    <div class="details">
-                
-                    <h4>Return Value</h4>
-
-                <table class="table">
-        <tr>
-            <td><code class="language-php">int</code></td>
-            <td></td>
-        </tr>
-    </table>
-
-        
-        
-            </div>
-
-                        <div>
-        <div class="float-right">
-                            at line <a href="#source.317">317</a>
-                    </div>
-        <div>
-            <h3 id="method_getFirstName"><code class="language-php">getFirstName()</code></h3>
-            <code class="language-php">public string&nbsp;getFirstName()</code>
-        </div>
-    </div>
-
-    <div class="details">
-                
-                    <h4>Return Value</h4>
-
-                <table class="table">
-        <tr>
-            <td><code class="language-php">string</code></td>
-            <td></td>
-        </tr>
-    </table>
-
-        
-        
-            </div>
-
-                        <div>
-        <div class="float-right">
-                            at line <a href="#source.324">324</a>
-                    </div>
-        <div>
-            <h3 id="method_getLastName"><code class="language-php">getLastName()</code></h3>
-            <code class="language-php">public string&nbsp;getLastName()</code>
-        </div>
-    </div>
-
-    <div class="details">
-                
-                    <h4>Return Value</h4>
-
-                <table class="table">
-        <tr>
-            <td><code class="language-php">string</code></td>
-            <td></td>
-        </tr>
-    </table>
-
-        
-        
-            </div>
-
-                        <div>
-        <div class="float-right">
-                            at line <a href="#source.331">331</a>
-                    </div>
-        <div>
-            <h3 id="method_getOffer"><code class="language-php">getOffer()</code></h3>
-            <code class="language-php">public string&nbsp;getOffer()</code>
-        </div>
-    </div>
-
-    <div class="details">
-                
-                    <h4>Return Value</h4>
-
-                <table class="table">
-        <tr>
-            <td><code class="language-php">string</code></td>
             <td></td>
         </tr>
     </table>
@@ -740,62 +639,14 @@
                             at line <a href="#source.338">338</a>
                     </div>
         <div>
-            <h3 id="method_getNotes"><code class="language-php">getNotes()</code></h3>
-            <code class="language-php">public string|null&nbsp;getNotes()</code>
+            <h3 id="method_getUpdateDate"><code class="language-php">getUpdateDate()</code></h3>
+            <code class="language-php">public int&nbsp;getUpdateDate()</code>
         </div>
     </div>
 
     <div class="details">
-                
-                    <h4>Return Value</h4>
-
-                <table class="table">
-        <tr>
-            <td><code class="language-php">string|null</code></td>
-            <td></td>
-        </tr>
-    </table>
-
-        
-        
-            </div>
-
-                        <div>
-        <div class="float-right">
-                            at line <a href="#source.345">345</a>
-                    </div>
-        <div>
-            <h3 id="method_getMembershipId"><code class="language-php">getMembershipId()</code></h3>
-            <code class="language-php">public string&nbsp;getMembershipId()</code>
-        </div>
-    </div>
-
-    <div class="details">
-                
-                    <h4>Return Value</h4>
-
-                <table class="table">
-        <tr>
-            <td><code class="language-php">string</code></td>
-            <td></td>
-        </tr>
-    </table>
-
-        
-        
-            </div>
-
-                        <div>
-        <div class="float-right">
-                            at line <a href="#source.352">352</a>
-                    </div>
-        <div>
-            <h3 id="method_getStartDate"><code class="language-php">getStartDate()</code></h3>
-            <code class="language-php">public int&nbsp;getStartDate()</code>
-        </div>
-    </div>
-
-    <div class="details">
+                    <div>
+                                    <p>Gets an integer representation of the record last updated date.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -812,40 +663,17 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.359">359</a>
+                            at line <a href="#source.347">347</a>
                     </div>
         <div>
-            <h3 id="method_isStatusOn"><code class="language-php">isStatusOn()</code></h3>
-            <code class="language-php">public bool&nbsp;isStatusOn()</code>
+            <h3 id="method_getFirstName"><code class="language-php">getFirstName()</code></h3>
+            <code class="language-php">public string&nbsp;getFirstName()</code>
         </div>
     </div>
 
     <div class="details">
-                
-                    <h4>Return Value</h4>
-
-                <table class="table">
-        <tr>
-            <td><code class="language-php">bool</code></td>
-            <td></td>
-        </tr>
-    </table>
-
-        
-        
-            </div>
-
-                        <div>
-        <div class="float-right">
-                            at line <a href="#source.366">366</a>
-                    </div>
-        <div>
-            <h3 id="method_getToken"><code class="language-php">getToken()</code></h3>
-            <code class="language-php">public string&nbsp;getToken()</code>
-        </div>
-    </div>
-
-    <div class="details">
+                    <div>
+                                    <p>Gets the first name stored in the Mvault record.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -862,15 +690,71 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.373">373</a>
+                            at line <a href="#source.356">356</a>
                     </div>
         <div>
-            <h3 id="method_getAdditionalMetadata"><code class="language-php">getAdditionalMetadata()</code></h3>
-            <code class="language-php">public string|null&nbsp;getAdditionalMetadata()</code>
+            <h3 id="method_getLastName"><code class="language-php">getLastName()</code></h3>
+            <code class="language-php">public string&nbsp;getLastName()</code>
         </div>
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets the last name stored in the Mvault record.</p>                                </div>
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.365">365</a>
+                    </div>
+        <div>
+            <h3 id="method_getOffer"><code class="language-php">getOffer()</code></h3>
+            <code class="language-php">public string&nbsp;getOffer()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                    <div>
+                                    <p>Gets the offer assigned to the MVault record.</p>                                </div>
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.374">374</a>
+                    </div>
+        <div>
+            <h3 id="method_getNotes"><code class="language-php">getNotes()</code></h3>
+            <code class="language-php">public string|null&nbsp;getNotes()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                    <div>
+                                    <p>Gets the optional notes field of the MVault record.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -887,21 +771,23 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.380">380</a>
+                            at line <a href="#source.383">383</a>
                     </div>
         <div>
-            <h3 id="method_getActivationDate"><code class="language-php">getActivationDate()</code></h3>
-            <code class="language-php">public int|null&nbsp;getActivationDate()</code>
+            <h3 id="method_getMembershipId"><code class="language-php">getMembershipId()</code></h3>
+            <code class="language-php">public string&nbsp;getMembershipId()</code>
         </div>
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets the membership id of the MVault record.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
                 <table class="table">
         <tr>
-            <td><code class="language-php">int|null</code></td>
+            <td><code class="language-php">string</code></td>
             <td></td>
         </tr>
     </table>
@@ -912,40 +798,17 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.387">387</a>
+                            at line <a href="#source.392">392</a>
                     </div>
         <div>
-            <h3 id="method_isProvisional"><code class="language-php">isProvisional()</code></h3>
-            <code class="language-php">public bool&nbsp;isProvisional()</code>
+            <h3 id="method_getStartDate"><code class="language-php">getStartDate()</code></h3>
+            <code class="language-php">public int&nbsp;getStartDate()</code>
         </div>
     </div>
 
     <div class="details">
-                
-                    <h4>Return Value</h4>
-
-                <table class="table">
-        <tr>
-            <td><code class="language-php">bool</code></td>
-            <td></td>
-        </tr>
-    </table>
-
-        
-        
-            </div>
-
-                        <div>
-        <div class="float-right">
-                            at line <a href="#source.394">394</a>
-                    </div>
-        <div>
-            <h3 id="method_getExpireDate"><code class="language-php">getExpireDate()</code></h3>
-            <code class="language-php">public int&nbsp;getExpireDate()</code>
-        </div>
-    </div>
-
-    <div class="details">
+                    <div>
+                                    <p>Gets an integer representation of the record start date</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -965,62 +828,14 @@
                             at line <a href="#source.401">401</a>
                     </div>
         <div>
-            <h3 id="method_getEmail"><code class="language-php">getEmail()</code></h3>
-            <code class="language-php">public string|null&nbsp;getEmail()</code>
+            <h3 id="method_isStatusOn"><code class="language-php">isStatusOn()</code></h3>
+            <code class="language-php">public bool&nbsp;isStatusOn()</code>
         </div>
     </div>
 
     <div class="details">
-                
-                    <h4>Return Value</h4>
-
-                <table class="table">
-        <tr>
-            <td><code class="language-php">string|null</code></td>
-            <td></td>
-        </tr>
-    </table>
-
-        
-        
-            </div>
-
-                        <div>
-        <div class="float-right">
-                            at line <a href="#source.408">408</a>
-                    </div>
-        <div>
-            <h3 id="method_getPBSProfile"><code class="language-php">getPBSProfile()</code></h3>
-            <code class="language-php">public <abbr title="LibMVault\LibMVault\PBSProfile">PBSProfile</abbr>|null&nbsp;getPBSProfile()</code>
-        </div>
-    </div>
-
-    <div class="details">
-                
-                    <h4>Return Value</h4>
-
-                <table class="table">
-        <tr>
-            <td><code class="language-php"><abbr title="LibMVault\LibMVault\PBSProfile">PBSProfile</abbr>|null</code></td>
-            <td></td>
-        </tr>
-    </table>
-
-        
-        
-            </div>
-
-                        <div>
-        <div class="float-right">
-                            at line <a href="#source.415">415</a>
-                    </div>
-        <div>
-            <h3 id="method_isActivated"><code class="language-php">isActivated()</code></h3>
-            <code class="language-php">public bool&nbsp;isActivated()</code>
-        </div>
-    </div>
-
-    <div class="details">
+                    <div>
+                                    <p>Gets the boolean status of the Status toggle of the MVault record.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -1037,7 +852,226 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.422">422</a>
+                            at line <a href="#source.410">410</a>
+                    </div>
+        <div>
+            <h3 id="method_getToken"><code class="language-php">getToken()</code></h3>
+            <code class="language-php">public string&nbsp;getToken()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                    <div>
+                                    <p>Gets the token string of the MVault record.</p>                                </div>
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.419">419</a>
+                    </div>
+        <div>
+            <h3 id="method_getAdditionalMetadata"><code class="language-php">getAdditionalMetadata()</code></h3>
+            <code class="language-php">public string|null&nbsp;getAdditionalMetadata()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                    <div>
+                                    <p>Gets the optional additional metadata field of the MVault record.</p>                                </div>
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string|null</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.429">429</a>
+                    </div>
+        <div>
+            <h3 id="method_getActivationDate"><code class="language-php">getActivationDate()</code></h3>
+            <code class="language-php">public int|null&nbsp;getActivationDate()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                    <div>
+                                    <p>Gets an integer representation of the activation start date. This value may
+be null, representing that the record has not been activated.</p>                                </div>
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">int|null</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.438">438</a>
+                    </div>
+        <div>
+            <h3 id="method_isProvisional"><code class="language-php">isProvisional()</code></h3>
+            <code class="language-php">public bool&nbsp;isProvisional()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                    <div>
+                                    <p>Gets the boolean status of the Provisional toggle of the MVault record.</p>                                </div>
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">bool</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.447">447</a>
+                    </div>
+        <div>
+            <h3 id="method_getExpireDate"><code class="language-php">getExpireDate()</code></h3>
+            <code class="language-php">public int&nbsp;getExpireDate()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                    <div>
+                                    <p>Gets an integer representation of the record expiration date</p>                                </div>
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">int</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.456">456</a>
+                    </div>
+        <div>
+            <h3 id="method_getEmail"><code class="language-php">getEmail()</code></h3>
+            <code class="language-php">public string|null&nbsp;getEmail()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                    <div>
+                                    <p>Gets the email stored in the Mvault record.</p>                                </div>
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">string|null</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.467">467</a>
+                    </div>
+        <div>
+            <h3 id="method_getPBSProfile"><code class="language-php">getPBSProfile()</code></h3>
+            <code class="language-php">public <abbr title="LibMVault\LibMVault\PBSProfile">PBSProfile</abbr>|null&nbsp;getPBSProfile()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                    <div>
+                                    <p>Gets the object representing the PBS profile sub-request that is made for
+activate MVault records. This may return null in the case that the MVault
+record has not yet been activated.</p>                                </div>
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php"><abbr title="LibMVault\LibMVault\PBSProfile">PBSProfile</abbr>|null</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.476">476</a>
+                    </div>
+        <div>
+            <h3 id="method_isActivated"><code class="language-php">isActivated()</code></h3>
+            <code class="language-php">public bool&nbsp;isActivated()</code>
+        </div>
+    </div>
+
+    <div class="details">
+                    <div>
+                                    <p>Gets the boolean activation of the MVault record.</p>                                </div>
+                
+                    <h4>Return Value</h4>
+
+                <table class="table">
+        <tr>
+            <td><code class="language-php">bool</code></td>
+            <td></td>
+        </tr>
+    </table>
+
+        
+        
+            </div>
+
+                        <div>
+        <div class="float-right">
+                            at line <a href="#source.483">483</a>
                     </div>
         <div>
             <h3 id="method_jsonSerialize"><code class="language-php">jsonSerialize()</code></h3>
@@ -1072,10 +1106,26 @@ use LibMVault\Result\MVaultResult;
 
 /**
  * Class MVaultRecord
+ *
+ * Represents a response from the MVault API. Required fields should mirror the
+ * fields that exist in an MVault response. These fields only need be present in
+ * the value passed in for parsing, they do not need to have actual values and
+ * may be null.
+ *
+ * Date fields must be able to be parsed. If a date field fails to parse then
+ * the entire record is considered invalid. There is one caveat to this rule for
+ * the activation_date field. The activation date is also allowed to be null,
+ * in which case it is a valid date field that can not be parsed. If the
+ * activation date contains a truthy value though, then it must be able to be
+ * parsed.
+ *
  * @package LibMVault
  */
 class MVaultRecord implements \JsonSerializable {
 
+  /**
+   * @var array
+   */
   const REQUIRED = [
     &#039;first_name&#039;, &#039;last_name&#039;, &#039;create_date&#039;, &#039;grace_period&#039;, &#039;update_date&#039;,
     &#039;offer&#039;, &#039;membership_id&#039;, &#039;start_date&#039;, &#039;status&#039;, &#039;token&#039;,
@@ -1083,11 +1133,17 @@ class MVaultRecord implements \JsonSerializable {
     &#039;pbs_profile&#039;, &#039;additional_metadata&#039;
   ];
 
+  /**
+   * @var array
+   */
   const REQUIRED_DATES = [
     &#039;grace_period&#039;, &#039;update_date&#039;, &#039;create_date&#039;,
     &#039;start_date&#039;, &#039;expire_date&#039;
   ];
 
+  /**
+   * @var string
+   */
   const DATEFORMAT = &#039;Y-m-d\TH:i:s\Z&#039;;
 
   /**
@@ -1357,6 +1413,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the grace period end date.
+   *
    * @return int
    */
   public function getGracePeriod(): int {
@@ -1364,6 +1422,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the record creation date.
+   *
    * @return int
    */
   public function getCreateDate(): int {
@@ -1371,6 +1431,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the record last updated date.
+   *
    * @return int
    */
   public function getUpdateDate(): int {
@@ -1378,6 +1440,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the first name stored in the Mvault record.
+   *
    * @return string
    */
   public function getFirstName(): string {
@@ -1385,6 +1449,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the last name stored in the Mvault record.
+   *
    * @return string
    */
   public function getLastName(): string {
@@ -1392,6 +1458,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the offer assigned to the MVault record.
+   *
    * @return string
    */
   public function getOffer(): string {
@@ -1399,6 +1467,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the optional notes field of the MVault record.
+   *
    * @return string|null
    */
   public function getNotes(): ?string {
@@ -1406,6 +1476,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the membership id of the MVault record.
+   *
    * @return string
    */
   public function getMembershipId(): string {
@@ -1413,6 +1485,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the record start date
+   *
    * @return int
    */
   public function getStartDate(): int {
@@ -1420,6 +1494,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the boolean status of the Status toggle of the MVault record.
+   *
    * @return bool
    */
   public function isStatusOn(): bool {
@@ -1427,6 +1503,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the token string of the MVault record.
+   *
    * @return string
    */
   public function getToken(): string {
@@ -1434,6 +1512,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the optional additional metadata field of the MVault record.
+   *
    * @return string|null
    */
   public function getAdditionalMetadata(): ?string {
@@ -1441,6 +1521,9 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the activation start date. This value may
+   * be null, representing that the record has not been activated.
+   *
    * @return int|null
    */
   public function getActivationDate(): ?int {
@@ -1448,6 +1531,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the boolean status of the Provisional toggle of the MVault record.
+   *
    * @return bool
    */
   public function isProvisional(): bool {
@@ -1455,6 +1540,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the record expiration date
+   *
    * @return int
    */
   public function getExpireDate(): int {
@@ -1462,6 +1549,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the email stored in the Mvault record.
+   *
    * @return string|null
    */
   public function getEmail(): ?string {
@@ -1469,6 +1558,10 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the object representing the PBS profile sub-request that is made for
+   * activate MVault records. This may return null in the case that the MVault
+   * record has not yet been activated.
+   *
    * @return PBSProfile|null
    */
   public function getPBSProfile(): ?PBSProfile {
@@ -1476,6 +1569,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the boolean activation of the MVault record.
+   *
    * @return bool
    */
   public function isActivated(): bool {

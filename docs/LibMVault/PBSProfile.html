@@ -55,7 +55,12 @@
         <a target="_blank" href="http://php.net/JsonSerializable"><abbr title="JsonSerializable">JsonSerializable</abbr></a>
 </p>
 
-            <p>Class PBSProfile</p>            
+            <p>Class PBSProfile</p>        <p>Represents the response from the PBS Profile sub request in an activated
+MVault record.</p>
+
+<p>A retrieval status object and a UID are always present. The remaining profile
+information is only required if the retrieval status object represents a
+successful request.</p>    
     
             <h2>Constants</h2>
 
@@ -161,8 +166,9 @@
                 <code class="language-php"><a href="#method_getFirstName">getFirstName</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the first name of the user that activated this MVault record. Returns
+a string if this object represents a successful profile lookup request,
+otherwise null is returned.            </td>
             <td></td>
         </tr>
             <tr>
@@ -175,8 +181,9 @@
                 <code class="language-php"><a href="#method_getLastName">getLastName</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the last name of the user that activated this MVault record. Returns
+a string if this object represents a successful profile lookup request,
+otherwise null is returned.            </td>
             <td></td>
         </tr>
             <tr>
@@ -184,13 +191,13 @@
                 <code class="language-php">
                                                             public                                    </code>
             </td>
-            <td class="text-right"><code class="language-php">string|null</code></td>
+            <td class="text-right"><code class="language-php">string</code></td>
             <td>
                 <code class="language-php"><a href="#method_getPID">getPID</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the PID of the user that activated this MVault record. Represented by
+the UID field in an MVault API response.            </td>
             <td></td>
         </tr>
             <tr>
@@ -203,8 +210,9 @@
                 <code class="language-php"><a href="#method_getEmail">getEmail</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the email of the user that activated this MVault record. Returns
+a string if this object represents a successful profile lookup request,
+otherwise null is returned.            </td>
             <td></td>
         </tr>
             <tr>
@@ -217,8 +225,10 @@
                 <code class="language-php"><a href="#method_getLoginProvider">getLoginProvider</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the login provider of the user that activated this MVault record. This
+is the value reported by PBS and takes one of three values: PBS, Google, or
+Facebook. Returns a string if this object represents a successful profile
+lookup request, otherwise null is returned.            </td>
             <td></td>
         </tr>
             <tr>
@@ -231,8 +241,8 @@
                 <code class="language-php"><a href="#method_getRetrievalStatus">getRetrievalStatus</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the retrieval status object describing the the success of the PBS
+profile sub-request.            </td>
             <td></td>
         </tr>
             <tr>
@@ -257,7 +267,7 @@
             <div id="method-details">
                         <div>
         <div class="float-right">
-                            at line <a href="#source.72">72</a>
+                            at line <a href="#source.86">86</a>
                     </div>
         <div>
             <h3 id="method_fromJSON"><code class="language-php">fromJSON()</code></h3>
@@ -292,7 +302,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.85">85</a>
+                            at line <a href="#source.99">99</a>
                     </div>
         <div>
             <h3 id="method_fromArray"><code class="language-php">fromArray()</code></h3>
@@ -327,7 +337,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.100">100</a>
+                            at line <a href="#source.114">114</a>
                     </div>
         <div>
             <h3 id="method_fromStdClass"><code class="language-php">fromStdClass()</code></h3>
@@ -362,7 +372,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.138">138</a>
+                            at line <a href="#source.152">152</a>
                     </div>
         <div>
             <h3 id="method_toArray"><code class="language-php">toArray()</code></h3>
@@ -387,7 +397,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.157">157</a>
+                            at line <a href="#source.171">171</a>
                     </div>
         <div>
             <h3 id="method_toStdClass"><code class="language-php">toStdClass()</code></h3>
@@ -412,7 +422,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.164">164</a>
+                            at line <a href="#source.182">182</a>
                     </div>
         <div>
             <h3 id="method_getFirstName"><code class="language-php">getFirstName()</code></h3>
@@ -421,6 +431,10 @@
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets the first name of the user that activated this MVault record. Returns
+a string if this object represents a successful profile lookup request,
+otherwise null is returned.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -437,7 +451,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.171">171</a>
+                            at line <a href="#source.193">193</a>
                     </div>
         <div>
             <h3 id="method_getLastName"><code class="language-php">getLastName()</code></h3>
@@ -446,6 +460,10 @@
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets the last name of the user that activated this MVault record. Returns
+a string if this object represents a successful profile lookup request,
+otherwise null is returned.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -462,21 +480,24 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.178">178</a>
+                            at line <a href="#source.203">203</a>
                     </div>
         <div>
             <h3 id="method_getPID"><code class="language-php">getPID()</code></h3>
-            <code class="language-php">public string|null&nbsp;getPID()</code>
+            <code class="language-php">public string&nbsp;getPID()</code>
         </div>
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets the PID of the user that activated this MVault record. Represented by
+the UID field in an MVault API response.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
                 <table class="table">
         <tr>
-            <td><code class="language-php">string|null</code></td>
+            <td><code class="language-php">string</code></td>
             <td></td>
         </tr>
     </table>
@@ -487,7 +508,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.185">185</a>
+                            at line <a href="#source.214">214</a>
                     </div>
         <div>
             <h3 id="method_getEmail"><code class="language-php">getEmail()</code></h3>
@@ -496,6 +517,10 @@
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets the email of the user that activated this MVault record. Returns
+a string if this object represents a successful profile lookup request,
+otherwise null is returned.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -512,7 +537,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.192">192</a>
+                            at line <a href="#source.226">226</a>
                     </div>
         <div>
             <h3 id="method_getLoginProvider"><code class="language-php">getLoginProvider()</code></h3>
@@ -521,6 +546,11 @@
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets the login provider of the user that activated this MVault record. This
+is the value reported by PBS and takes one of three values: PBS, Google, or
+Facebook. Returns a string if this object represents a successful profile
+lookup request, otherwise null is returned.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -537,7 +567,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.199">199</a>
+                            at line <a href="#source.236">236</a>
                     </div>
         <div>
             <h3 id="method_getRetrievalStatus"><code class="language-php">getRetrievalStatus()</code></h3>
@@ -546,6 +576,9 @@
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets the retrieval status object describing the the success of the PBS
+profile sub-request.</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -562,7 +595,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.206">206</a>
+                            at line <a href="#source.243">243</a>
                     </div>
         <div>
             <h3 id="method_jsonSerialize"><code class="language-php">jsonSerialize()</code></h3>
@@ -597,14 +630,28 @@ use LibMVault\Result\PBSProfileResult;
 
 /**
  * Class PBSProfile
+ *
+ * Represents the response from the PBS Profile sub request in an activated
+ * MVault record.
+ *
+ * A retrieval status object and a UID are always present. The remaining profile
+ * information is only required if the retrieval status object represents a
+ * successful request.
+ *
  * @package LibMVault
  */
 class PBSProfile implements \JsonSerializable {
 
+  /**
+   * @var array
+   */
   const REQUIRED = [
     &#039;retrieval_status&#039;, &#039;UID&#039;
   ];
 
+  /**
+   * @var array
+   */
   const SUCCESS_REQUIRED = [
     &#039;first_name&#039;, &#039;last_name&#039;, &#039;email&#039;, &#039;login_provider&#039;
   ];
@@ -750,6 +797,10 @@ class PBSProfile implements \JsonSerializable {
   }
 
   /**
+   * Gets the first name of the user that activated this MVault record. Returns
+   * a string if this object represents a successful profile lookup request,
+   * otherwise null is returned.
+   *
    * @return string|null
    */
   public function getFirstName(): ?string {
@@ -757,6 +808,10 @@ class PBSProfile implements \JsonSerializable {
   }
 
   /**
+   * Gets the last name of the user that activated this MVault record. Returns
+   * a string if this object represents a successful profile lookup request,
+   * otherwise null is returned.
+   *
    * @return string|null
    */
   public function getLastName(): ?string {
@@ -764,13 +819,20 @@ class PBSProfile implements \JsonSerializable {
   }
 
   /**
-   * @return string|null
+   * Gets the PID of the user that activated this MVault record. Represented by
+   * the UID field in an MVault API response.
+   *
+   * @return string
    */
-  public function getPID(): ?string {
+  public function getPID(): string {
     return $this-&gt;_pid;
   }
 
   /**
+   * Gets the email of the user that activated this MVault record. Returns
+   * a string if this object represents a successful profile lookup request,
+   * otherwise null is returned.
+   *
    * @return string|null
    */
   public function getEmail(): ?string {
@@ -778,6 +840,11 @@ class PBSProfile implements \JsonSerializable {
   }
 
   /**
+   * Gets the login provider of the user that activated this MVault record. This
+   * is the value reported by PBS and takes one of three values: PBS, Google, or
+   * Facebook. Returns a string if this object represents a successful profile
+   * lookup request, otherwise null is returned.
+   *
    * @return string|null
    */
   public function getLoginProvider(): ?string {
@@ -785,6 +852,9 @@ class PBSProfile implements \JsonSerializable {
   }
 
   /**
+   * Gets the retrieval status object describing the the success of the PBS
+   * profile sub-request.
+   *
    * @return RetrievalStatus
    */
   public function getRetrievalStatus(): RetrievalStatus {

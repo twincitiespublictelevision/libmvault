@@ -55,7 +55,9 @@
         <a target="_blank" href="http://php.net/JsonSerializable"><abbr title="JsonSerializable">JsonSerializable</abbr></a>
 </p>
 
-            <p>Class RetrievalStatus</p>            
+            <p>Class RetrievalStatus</p>        <p>Represents the retrieval status of the PBS Profile sub-request of an
+activated MVault record. Contains the status code and message provided by the
+PBS API.</p>    
     
             <h2>Constants</h2>
 
@@ -154,8 +156,7 @@
                 <code class="language-php"><a href="#method_getStatus">getStatus</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the status code for the retrieval status            </td>
             <td></td>
         </tr>
             <tr>
@@ -168,8 +169,7 @@
                 <code class="language-php"><a href="#method_getMessage">getMessage</a>()</code>
             </td>
             <td>
-                                    No description
-                            </td>
+                                    Gets the message describing the retrieval status            </td>
             <td></td>
         </tr>
             <tr>
@@ -194,7 +194,7 @@
             <div id="method-details">
                         <div>
         <div class="float-right">
-                            at line <a href="#source.41">41</a>
+                            at line <a href="#source.49">49</a>
                     </div>
         <div>
             <h3 id="method_fromJSON"><code class="language-php">fromJSON()</code></h3>
@@ -229,7 +229,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.54">54</a>
+                            at line <a href="#source.62">62</a>
                     </div>
         <div>
             <h3 id="method_fromArray"><code class="language-php">fromArray()</code></h3>
@@ -264,7 +264,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.69">69</a>
+                            at line <a href="#source.77">77</a>
                     </div>
         <div>
             <h3 id="method_fromStdClass"><code class="language-php">fromStdClass()</code></h3>
@@ -299,7 +299,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.87">87</a>
+                            at line <a href="#source.95">95</a>
                     </div>
         <div>
             <h3 id="method_toArray"><code class="language-php">toArray()</code></h3>
@@ -324,7 +324,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.99">99</a>
+                            at line <a href="#source.107">107</a>
                     </div>
         <div>
             <h3 id="method_toStdClass"><code class="language-php">toStdClass()</code></h3>
@@ -349,7 +349,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.106">106</a>
+                            at line <a href="#source.116">116</a>
                     </div>
         <div>
             <h3 id="method_getStatus"><code class="language-php">getStatus()</code></h3>
@@ -358,6 +358,8 @@
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets the status code for the retrieval status</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -374,7 +376,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.113">113</a>
+                            at line <a href="#source.125">125</a>
                     </div>
         <div>
             <h3 id="method_getMessage"><code class="language-php">getMessage()</code></h3>
@@ -383,6 +385,8 @@
     </div>
 
     <div class="details">
+                    <div>
+                                    <p>Gets the message describing the retrieval status</p>                                </div>
                 
                     <h4>Return Value</h4>
 
@@ -399,7 +403,7 @@
 
                         <div>
         <div class="float-right">
-                            at line <a href="#source.120">120</a>
+                            at line <a href="#source.132">132</a>
                     </div>
         <div>
             <h3 id="method_jsonSerialize"><code class="language-php">jsonSerialize()</code></h3>
@@ -434,10 +438,18 @@ use LibMVault\Result\RetrievalStatusResult;
 
 /**
  * Class RetrievalStatus
+ *
+ * Represents the retrieval status of the PBS Profile sub-request of an
+ * activated MVault record. Contains the status code and message provided by the
+ * PBS API.
+ *
  * @package LibMVault
  */
 class RetrievalStatus implements \JsonSerializable {
 
+  /**
+   * @var array
+   */
   const REQUIRED = [
     &#039;status&#039;, &#039;message&#039;
   ];
@@ -529,6 +541,8 @@ class RetrievalStatus implements \JsonSerializable {
   }
 
   /**
+   * Gets the status code for the retrieval status
+   *
    * @return int
    */
   public function getStatus(): int {
@@ -536,6 +550,8 @@ class RetrievalStatus implements \JsonSerializable {
   }
 
   /**
+   * Gets the message describing the retrieval status
+   *
    * @return string
    */
   public function getMessage(): string {
