@@ -64,7 +64,7 @@ try {
 
 * PHP >= 7.1
 
-## Installing
+## Install
 
 1. Add to the **repositories** key of your **composer.json** file:
 ```
