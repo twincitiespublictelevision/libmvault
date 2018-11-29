@@ -6,14 +6,28 @@ use LibMVault\Result\PBSProfileResult;
 
 /**
  * Class PBSProfile
+ *
+ * Represents the response from the PBS Profile sub request in an activated
+ * MVault record.
+ *
+ * A retrieval status object and a UID are always present. The remaining profile
+ * information is only required if the retrieval status object represents a
+ * successful request.
+ *
  * @package LibMVault
  */
 class PBSProfile implements \JsonSerializable {
 
+  /**
+   * @var array
+   */
   const REQUIRED = [
     'retrieval_status', 'UID'
   ];
 
+  /**
+   * @var array
+   */
   const SUCCESS_REQUIRED = [
     'first_name', 'last_name', 'email', 'login_provider'
   ];
@@ -159,6 +173,10 @@ class PBSProfile implements \JsonSerializable {
   }
 
   /**
+   * Gets the first name of the user that activated this MVault record. Returns
+   * a string if this object represents a successful profile lookup request,
+   * otherwise null is returned.
+   *
    * @return string|null
    */
   public function getFirstName(): ?string {
@@ -166,6 +184,10 @@ class PBSProfile implements \JsonSerializable {
   }
 
   /**
+   * Gets the last name of the user that activated this MVault record. Returns
+   * a string if this object represents a successful profile lookup request,
+   * otherwise null is returned.
+   *
    * @return string|null
    */
   public function getLastName(): ?string {
@@ -173,13 +195,20 @@ class PBSProfile implements \JsonSerializable {
   }
 
   /**
-   * @return string|null
+   * Gets the PID of the user that activated this MVault record. Represented by
+   * the UID field in an MVault API response.
+   *
+   * @return string
    */
-  public function getPID(): ?string {
+  public function getPID(): string {
     return $this->_pid;
   }
 
   /**
+   * Gets the email of the user that activated this MVault record. Returns
+   * a string if this object represents a successful profile lookup request,
+   * otherwise null is returned.
+   *
    * @return string|null
    */
   public function getEmail(): ?string {
@@ -187,6 +216,11 @@ class PBSProfile implements \JsonSerializable {
   }
 
   /**
+   * Gets the login provider of the user that activated this MVault record. This
+   * is the value reported by PBS and takes one of three values: PBS, Google, or
+   * Facebook. Returns a string if this object represents a successful profile
+   * lookup request, otherwise null is returned.
+   *
    * @return string|null
    */
   public function getLoginProvider(): ?string {
@@ -194,6 +228,9 @@ class PBSProfile implements \JsonSerializable {
   }
 
   /**
+   * Gets the retrieval status object describing the the success of the PBS
+   * profile sub-request.
+   *
    * @return RetrievalStatus
    */
   public function getRetrievalStatus(): RetrievalStatus {

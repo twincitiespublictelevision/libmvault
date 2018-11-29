@@ -6,10 +6,18 @@ use LibMVault\Result\RetrievalStatusResult;
 
 /**
  * Class RetrievalStatus
+ *
+ * Represents the retrieval status of the PBS Profile sub-request of an
+ * activated MVault record. Contains the status code and message provided by the
+ * PBS API.
+ *
  * @package LibMVault
  */
 class RetrievalStatus implements \JsonSerializable {
 
+  /**
+   * @var array
+   */
   const REQUIRED = [
     'status', 'message'
   ];
@@ -101,6 +109,8 @@ class RetrievalStatus implements \JsonSerializable {
   }
 
   /**
+   * Gets the status code for the retrieval status
+   *
    * @return int
    */
   public function getStatus(): int {
@@ -108,6 +118,8 @@ class RetrievalStatus implements \JsonSerializable {
   }
 
   /**
+   * Gets the message describing the retrieval status
+   *
    * @return string
    */
   public function getMessage(): string {

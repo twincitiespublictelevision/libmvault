@@ -6,10 +6,26 @@ use LibMVault\Result\MVaultResult;
 
 /**
  * Class MVaultRecord
+ *
+ * Represents a response from the MVault API. Required fields should mirror the
+ * fields that exist in an MVault response. These fields only need be present in
+ * the value passed in for parsing, they do not need to have actual values and
+ * may be null.
+ *
+ * Date fields must be able to be parsed. If a date field fails to parse then
+ * the entire record is considered invalid. There is one caveat to this rule for
+ * the activation_date field. The activation date is also allowed to be null,
+ * in which case it is a valid date field that can not be parsed. If the
+ * activation date contains a truthy value though, then it must be able to be
+ * parsed.
+ *
  * @package LibMVault
  */
 class MVaultRecord implements \JsonSerializable {
 
+  /**
+   * @var array
+   */
   const REQUIRED = [
     'first_name', 'last_name', 'create_date', 'grace_period', 'update_date',
     'offer', 'membership_id', 'start_date', 'status', 'token',
@@ -17,11 +33,17 @@ class MVaultRecord implements \JsonSerializable {
     'pbs_profile', 'additional_metadata'
   ];
 
+  /**
+   * @var array
+   */
   const REQUIRED_DATES = [
     'grace_period', 'update_date', 'create_date',
     'start_date', 'expire_date'
   ];
 
+  /**
+   * @var string
+   */
   const DATEFORMAT = 'Y-m-d\TH:i:s\Z';
 
   /**
@@ -291,6 +313,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the grace period end date.
+   *
    * @return int
    */
   public function getGracePeriod(): int {
@@ -298,6 +322,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the record creation date.
+   *
    * @return int
    */
   public function getCreateDate(): int {
@@ -305,6 +331,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the record last updated date.
+   *
    * @return int
    */
   public function getUpdateDate(): int {
@@ -312,6 +340,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the first name stored in the Mvault record.
+   *
    * @return string
    */
   public function getFirstName(): string {
@@ -319,6 +349,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the last name stored in the Mvault record.
+   *
    * @return string
    */
   public function getLastName(): string {
@@ -326,6 +358,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the offer assigned to the MVault record.
+   *
    * @return string
    */
   public function getOffer(): string {
@@ -333,6 +367,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the optional notes field of the MVault record.
+   *
    * @return string|null
    */
   public function getNotes(): ?string {
@@ -340,6 +376,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the membership id of the MVault record.
+   *
    * @return string
    */
   public function getMembershipId(): string {
@@ -347,6 +385,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the record start date
+   *
    * @return int
    */
   public function getStartDate(): int {
@@ -354,6 +394,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the boolean status of the Status toggle of the MVault record.
+   *
    * @return bool
    */
   public function isStatusOn(): bool {
@@ -361,6 +403,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the token string of the MVault record.
+   *
    * @return string
    */
   public function getToken(): string {
@@ -368,6 +412,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the optional additional metadata field of the MVault record.
+   *
    * @return string|null
    */
   public function getAdditionalMetadata(): ?string {
@@ -375,6 +421,9 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the activation start date. This value may
+   * be null, representing that the record has not been activated.
+   *
    * @return int|null
    */
   public function getActivationDate(): ?int {
@@ -382,6 +431,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the boolean status of the Provisional toggle of the MVault record.
+   *
    * @return bool
    */
   public function isProvisional(): bool {
@@ -389,6 +440,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets an integer representation of the record expiration date
+   *
    * @return int
    */
   public function getExpireDate(): int {
@@ -396,6 +449,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the email stored in the Mvault record.
+   *
    * @return string|null
    */
   public function getEmail(): ?string {
@@ -403,6 +458,10 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the object representing the PBS profile sub-request that is made for
+   * activate MVault records. This may return null in the case that the MVault
+   * record has not yet been activated.
+   *
    * @return PBSProfile|null
    */
   public function getPBSProfile(): ?PBSProfile {
@@ -410,6 +469,8 @@ class MVaultRecord implements \JsonSerializable {
   }
 
   /**
+   * Gets the boolean activation of the MVault record.
+   *
    * @return bool
    */
   public function isActivated(): bool {
