@@ -1,4 +1,5 @@
 # libmvault
+[![CircleCI](https://circleci.com/gh/twincitiespublictelevision/libmvault/tree/master.svg?style=svg)](https://circleci.com/gh/twincitiespublictelevision/libmvault/tree/master)
 
 `libmvault` is a small package containing a couple of classes for structured
 usage of MVault data.
@@ -15,6 +16,8 @@ respectively. The result encapsulates either the created object or the error
 depending on the success of call.
 
 ## Usage
+
+Documentation can be found at [https://twincitiespublictelevision.github.io/libmvault/](https://twincitiespublictelevision.github.io/libmvault/)
 
 Result classes provide a return style for capturing the success or failure of a
 given operation in a single return value. The value or error can then be extracted
