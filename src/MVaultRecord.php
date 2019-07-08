@@ -360,7 +360,7 @@ class MVaultRecord implements \JsonSerializable {
   /**
    * Gets the offer assigned to the MVault record.
    *
-   * @return string
+   * @return string|null
    */
   public function getOffer(): ?string {
     return $this->_offer;
