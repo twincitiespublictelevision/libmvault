@@ -153,7 +153,7 @@ class MVaultRecord implements \JsonSerializable {
    */
   private function __construct(
     int $gracePeriod, int $updateDate, string $firstName, string $lastName,
-    int $createDate, string $offer, string $membershipId, int $startDate,
+    int $createDate, ?string $offer, string $membershipId, int $startDate,
     bool $status, string $token, bool $provisional, int $expireDate,
     ?int $activationDate = null, ?string $email = null, ?string $notes = null,
     ?string $additionalMetadata = null, ?PBSProfile $profile = null
@@ -360,9 +360,9 @@ class MVaultRecord implements \JsonSerializable {
   /**
    * Gets the offer assigned to the MVault record.
    *
-   * @return string
+   * @return string|null
    */
-  public function getOffer(): string {
+  public function getOffer(): ?string {
     return $this->_offer;
   }
 

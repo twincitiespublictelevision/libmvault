@@ -238,7 +238,7 @@ parsed.</p>
                 <code class="language-php">
                                                             public                                    </code>
             </td>
-            <td class="text-right"><code class="language-php">string</code></td>
+            <td class="text-right"><code class="language-php">string|null</code></td>
             <td>
                 <code class="language-php"><a href="#method_getOffer">getOffer</a>()</code>
             </td>
@@ -721,7 +721,7 @@ record has not yet been activated.            </td>
                     </div>
         <div>
             <h3 id="method_getOffer"><code class="language-php">getOffer()</code></h3>
-            <code class="language-php">public string&nbsp;getOffer()</code>
+            <code class="language-php">public string|null&nbsp;getOffer()</code>
         </div>
     </div>
 
@@ -733,7 +733,7 @@ record has not yet been activated.            </td>
 
                 <table class="table">
         <tr>
-            <td><code class="language-php">string</code></td>
+            <td><code class="language-php">string|null</code></td>
             <td></td>
         </tr>
     </table>
@@ -1253,7 +1253,7 @@ class MVaultRecord implements \JsonSerializable {
    */
   private function __construct(
     int $gracePeriod, int $updateDate, string $firstName, string $lastName,
-    int $createDate, string $offer, string $membershipId, int $startDate,
+    int $createDate, ?string $offer, string $membershipId, int $startDate,
     bool $status, string $token, bool $provisional, int $expireDate,
     ?int $activationDate = null, ?string $email = null, ?string $notes = null,
     ?string $additionalMetadata = null, ?PBSProfile $profile = null
@@ -1460,9 +1460,9 @@ class MVaultRecord implements \JsonSerializable {
   /**
    * Gets the offer assigned to the MVault record.
    *
-   * @return string
+   * @return string|null
    */
-  public function getOffer(): string {
+  public function getOffer(): ?string {
     return $this-&gt;_offer;
   }
 
