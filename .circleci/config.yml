@@ -7,6 +7,9 @@ jobs:
   should_build:
     docker:
       - image: circleci/php:7.1
+        auth:
+          username: $DOCKERHUB_ACCOUNT 
+          password: $DOCKERHUB_PASSWORD
     steps:
       - restore_cache:
           key: repo-{{ .Branch }}
@@ -30,6 +33,9 @@ jobs:
   test:
     docker:
       - image: circleci/php:7.1
+        auth:
+          username: $DOCKERHUB_ACCOUNT 
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run: composer install
@@ -40,6 +46,9 @@ jobs:
   create_docs:
     docker:
       - image: circleci/php:7.1
+        auth:
+          username: $DOCKERHUB_ACCOUNT 
+          password: $DOCKERHUB_PASSWORD
     steps:
       - run: echo $CIRCLE_SHA1 > .circle-sha
       - restore_cache:
