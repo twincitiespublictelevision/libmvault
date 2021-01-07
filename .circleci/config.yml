@@ -6,7 +6,7 @@ orbs:
 jobs:
   should_build:
     docker:
-      - image: circleci/php:7.1
+      - image: circleci/php:7.4.9
     steps:
       - restore_cache:
           key: repo-{{ .Branch }}
@@ -29,7 +29,7 @@ jobs:
 
   test:
     docker:
-      - image: circleci/php:7.1
+      - image: circleci/php:7.4.9
     steps:
       - checkout
       - run: composer install
@@ -39,7 +39,7 @@ jobs:
 
   create_docs:
     docker:
-      - image: circleci/php:7.1
+      - image: circleci/php:7.4.9
     steps:
       - run: echo $CIRCLE_SHA1 > .circle-sha
       - restore_cache:
